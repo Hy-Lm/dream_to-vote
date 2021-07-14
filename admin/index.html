@@ -32,6 +32,7 @@
 	</body>
 	<script type="text/javascript">
 		 //键盘按下
+		 let url='http://192.168.7.108/dream_to-vote/php/'
 		 window.onkeydown=function(e){
 			//console.log(e.keyCode)
 			 if(e.keyCode==13){
@@ -52,8 +53,7 @@
                 $('#pass').focus()
                 return false
             }
-			let url='http://192.168.7.108/dream/php/login.php?name='+user+'&password='+pass;
-			axios.get(url).then(res=>{
+			axios.get(url + 'login.php?name='+user+'&password='+pass).then(res=>{
 				console.log(res)
 				if(res.data=='ok'){
 					window.sessionStorage.setItem('user',user);

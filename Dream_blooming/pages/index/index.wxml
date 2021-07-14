@@ -4,7 +4,7 @@
   <view class="banner">
     <swiper class="banner_swiper" indicator-dots="{{indicatorDots}}" indicator-dots="dots"
       indicator-active-color="rgb(255,146,0)" indicator-color="rgb(255,255,255)" autoplay="{{bannerItem.autoplay}}"
-      interval="{{bannerItem.interval}}" duration="{{bannerItem.duration}}">
+      interval="{{bannerItem.interval}}" duration="{{bannerItem.duration}}" circular="true">
       <block wx:for="{{background}}" wx:key="*this">
         <swiper-item>
           <view>

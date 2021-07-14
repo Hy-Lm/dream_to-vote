@@ -111,7 +111,7 @@
 					list: [],
 					endTime:'',
 					timestamp:'',
-					url:'http://192.168.1.170/dream/php/'
+					url:'http://192.168.7.108/dream_to-vote/php/'
 				},
 				methods: {
 					// 初始化图片
@@ -140,28 +140,9 @@
 						});
 						
 					},
-					// fun(){
-						// console.log(this.endTime)
-						// var t=parseInt(Math.abs(this.endTime/60/60/24));t=t<10?'0'+t:t;
-						// console.log(t)
-						// var s=parseInt(Math.abs(this.endTime/60/60%24));s=s<10?'0'+s:s;
-						// console.log(s)
-						// var f=parseInt(Math.abs(this.endTime/60%60));f=f<10?'0'+f:f;
-						// console.log(f)
-						// var m=parseInt(Math.abs(this.endTime%60));m=m<10?'0'+m:m;
-						// console.log(m)
-						
-						// if(this.endTime > 0){
-						//     this.endTime='距活动结束还有:'+t+'天'+s+'小时'+f+'分钟'+m+'秒';
-						// }else{
-						// 	this.endTime='活动已结束';
-						// 	// clearInterval(this.time)
-						// }
-					// }
 				},
 				mounted() {
 					this.loadImage()
-					// setInterval(this.fun,1000)
 				}
 			}) 
 	</script>

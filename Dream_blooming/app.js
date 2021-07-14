@@ -19,6 +19,6 @@ App({
   globalData: {
     userInfo: null,
     openid:'121212',
-    url:'http://192.168.7.108/dream/php/'
+    url:'http://192.168.7.108/dream_to-vote/php/'
   }
 })
