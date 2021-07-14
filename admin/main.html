@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>梦绽放</title>
+    <link rel="stylesheet" href="./css/main.css">
+    <link href="css/adminStyle.css" rel="stylesheet" type="text/css" />
+    <script src="js/jquery.js"></script>
+    <script src="js/public.js"></script>
+</head>
+
+<body>
+    <div class="header">
+        <div class="header_l">
+            <!-- <img src="./images/logo.png" alt="" style="width:120px;height:60px"> -->
+            <span class="header_title">梦绽放后台管理系统</span>
+        </div>
+        <div class="header_r">
+            <a><span>管理员：DeathGhost</span></a>
+            <a href="#"><i class="quitIcon"></i><span>安全退出</span></a>
+        </div>
+    </div>
+    <div class="content">
+        <div class="content_l">
+			<li class="menu-list-title">
+			    <span>主页信息</span>
+			    <i>◢</i>
+			</li>
+			<li>
+			    <ul class="menu-children">
+			        <li><a href="banner.html" title="轮播图" target="iframe">轮播图</a></li>
+			        <li><a href="holiday.html" title="轮播图" target="iframe">活动规则</a></li>
+			    </ul>
+			</li>
+            <li class="menu-list-title">
+                <span>选手</span>
+                <i>◢</i>
+            </li>
+            <li>
+                <ul class="menu-children">
+                    <li><a href="personal.html" title="人员信息" target="iframe">选手信息</a></li>
+                </ul>
+            </li>
+			<li class="menu-list-title">
+			    <span>角色</span>
+			    <i>◢</i>
+			</li>
+			<li>
+			    <ul class="menu-children">
+			        <li><a href="role.html" title="角色" target="iframe">角色</a></li>
+			    </ul>
+			</li>
+			<li class="menu-list-title">
+			    <span>礼物</span>
+			    <i>◢</i>
+			</li>
+			<li>
+			    <ul class="menu-children">
+			        <li><a href="gift.html" title="全部礼物" target="iframe">全部礼物</a></li>
+			    </ul>
+			</li>
+        </div>
+        <div class="content_r">
+            <div class="content_r_top">
+                <iframe class="iframe" name="iframe" src="./personal.html" frameborder="1"></iframe>
+            </div>
+            <div class="content_r_foot">
+                copyright@2018-2021年 
+            </div>
+        </div>
+    </div>
+    <script>
+		// 防止用户从地址栏直接进入
+		if(window.sessionStorage.getItem('user')==''|| window.sessionStorage.getItem('user')==null){
+			window.location.href="index.html"
+		}
+    </script>
+</body>

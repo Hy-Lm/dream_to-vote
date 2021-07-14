@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>登录</title>
+		<link rel="stylesheet" type="text/css" href="css/public.css"/>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+		<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/axios.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="test_box">
+		    <div class="content">
+		        <div class="li">梦绽放后台管理</div>
+		        <div class="user_info">
+		            <div>
+		                <label>用户名：</label>
+		                <input type="text" autocomplete="off" class="user_info_input" id="user" placeholder="请输入用户名">
+		            </div>
+		            <div>
+		                <label>密码：</label>
+		                <input type="password" class="user_info_input" id="pass" placeholder="请输入密码">
+		            </div>
+		            <div>
+		                <label>
+		                    <input type="button" class="user_info_but" value="登录" onclick="sub()">
+		                </label>
+		            </div>
+		        </div>
+		    </div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		 //键盘按下
+		 window.onkeydown=function(e){
+			//console.log(e.keyCode)
+			 if(e.keyCode==13){
+				 sub()
+			 }
+		 }
+		//点击登录
+		function sub(){
+			var user = $("#user").val()
+            var pass = $("#pass").val()
+            if (user == '') {
+                alert('用户名不能为空')
+                $('#user').focus()
+                return false
+            }
+            if (pass == '') {
+                alert('密码不能为空')
+                $('#pass').focus()
+                return false
+            }
+			let url='http://192.168.7.108/dream/php/login.php?name='+user+'&password='+pass;
+			axios.get(url).then(res=>{
+				console.log(res)
+				if(res.data=='ok'){
+					window.sessionStorage.setItem('user',user);
+					window.location.href='main.html'
+				}else{
+					alert('账号或密码不正确')
+				}
+			})
+		}
+	</script>
+</html>

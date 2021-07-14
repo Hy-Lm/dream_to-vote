@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>人员信息</title>
+		<link href="css/adminStyle.css" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" href="./css/information.css">
+		<script src="js/jquery.js"></script>
+		<script src="js/public.js"></script>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/axios.js" type="text/javascript" charset="utf-8"></script>
+
+		<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+		<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		
+		
+	</head>
+	<body>
+		<div class="wrap" id="box">
+			<div class="page-title">
+				<span class="modular fl"><i class="add_user"></i><em>人员信息</em></span>
+			</div>
+			
+			<table class="list-style" style="text-align:center;">
+				<tr>
+					<div class="information" style="margin-left: 50%;">
+						<li></label><input style="visibility:hidden;width:127px;"></li>
+						<li><label>名字/艺名/编号: </label><input type="text" name="user" class="user" style="line-height: normal;" autocomplete="off">
+						</li>
+						<li><input type="submit" name="submit" value="查询" class="submit" @click="formCheck()"></li>
+					</div>
+				</tr>
+				<tr>
+					<td>编号</td>
+					<td>姓名</td>
+					<td>艺名</td>
+					<td>照片</td>
+					<td>性别</td>
+					<td>年龄</td>
+					<td>三围</td>
+					<td>身高</td>
+					<td>体重</td>
+					<td>电话</td>
+					<td>邮箱</td>
+					<td>特长</td>
+					<td>代表作</td>
+					<td>角色</td>
+					<td>正在参与类型</td>
+					<td>正在参与电影</td>
+					<!-- <td>热度</td> -->
+					<td>投票数</td>
+					<td>音频</td>
+					<td>视频</td>
+					<td>编辑</td>
+				</tr>
+				<tr v-for="(item,index) of list" :key="index">
+					<td>
+						<div style="width: 50px;">{{item.player_serial}}</div>
+					</td>
+					<td>
+						<div style="width: 50px;">{{item.player_name}}</div>
+					</td>
+					<td>
+						<div style="width: 50px;">{{item.player_stage}}</div>
+					</td>
+					<td>
+						<img :src="item.imgUrls[0]" style="width: 100px;height: 100px;">
+					</td>
+					<td>
+						<div style="width: 50px;">{{item.player_sex}}</div>
+					</td>
+					<td>
+						<div style="width: 50px;">{{item.player_age}}</div>
+					</td>
+					<td>
+						<div style="width: 150px;">{{item.san_wei}}</div>
+					</td>
+					<td>
+						<div style="width: 50px;">{{item.player_height}}</div>
+					</td>
+					<td>
+						<div style="width: 50px;">{{item.player_weight}}</div>
+					</td>
+					<td>
+						<div style="width: 150px;">{{item.player_tel}}</div>
+					</td>
+					<td>
+						<div style="width: 150px;">{{item.player_email}}</div>
+					</td>
+					<td>
+						<div style="width: 150px;">{{item.player_strong}}</div>
+					</td>
+					<td>
+						<div style="width: 150px;">{{item.player_magnum}}</div>
+					</td>
+					<td>
+						<div style="width: 150px;">{{item.player_role}}</div>
+					</td>
+					<td >
+						<div style="width: 150px;">{{item.being_type}}</div>
+					</td>
+					<td>
+						<div style="width: 150px;">{{item.being_movie}}</div>
+					</td>
+					<!-- <td>{{item.player_heat}}</td> -->
+					<td>
+						<div style="width: 50px;">{{item.player_vote}}</div>
+					</td>
+					<td>
+						<audio :src="item.player_voice" type="video/mp4/ogg/webm" width="100" height="100" controls="controls" ></audio>
+					</td>
+					<td>
+						<video :src="item.player_video" type="video/mp4/ogg/webm" width="200" height="100" controls="controls"></video>
+					</td>
+					<td>
+						<div style="width: 100px;">
+							<a title="编辑" title="编辑" @click="compile(index)" data-toggle="modal" data-target="#myModal">
+								<span>编辑</span>
+							</a>
+							<a title="删除" title="删除" @click="del(index)">
+								<span>删除</span>
+							</a>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="21" >
+						<input  type="button" v-if="this.current_page != 1" value="上一页" @click="up()"/>
+						<div style="display: inline;margin: 0 5px 0 20px;">一共{{this.page_count}}页</div>
+						<div style="display: inline;">当前<input type="text" style="width: 25px; border: none;" v-model="current_page" @Blur="blur" />页</div>
+						<input v-if="this.current_page !=this.page_count" style="margin: 0 20px;" style="margin: 50%;" type="button" value="下一页" @click="down()"/>
+						<a @click="add()" data-toggle="modal" data-target="#myModal">添加
+							<span class="glyphicon glyphicon-plus"></span>
+						</a>
+					</td>
+				</tr>
+			</table>
+			<!-- 模态框 -->
+			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h4 class="modal-title" id="myModalLabel">人员信息</h4>
+						</div>
+						<div class="modal-body">
+							<form :action="this.url+'add_players.php'" method="post" enctype="multipart/form-data">
+								<div class="form-group">
+									<input type="hidden" class="form-control" name="id" v-model="id" />
+									<!-- <input type="hidden" class="form-control" name="player_serial" v-model="player_serial" /> -->
+									<label>姓名</label>
+									<input type="text" class="form-control" name="player_name" v-model="player_name"  autocomplete="off" placeholder="请输入姓名" />
+									<label>艺名</label>
+									<input type="text" class="form-control" name="player_stage" v-model="player_stage"  autocomplete="off" placeholder="请输入艺名" />
+									<label>照片</label>
+									<input type="file" name="imgs[]"  multiple="multiple" />
+									<label>性别</label>
+									<input type="text" class="form-control" name="player_sex" v-model="player_sex"  autocomplete="off" placeholder="请输入性别" />
+									<label>年龄</label>
+									<input type="text" class="form-control" name="player_age" v-model="player_age"  autocomplete="off" placeholder="请输入年龄" />
+									<label>三围</label>
+									<input type="text" class="form-control" name="san_wei" v-model="san_wei" autocomplete="off" placeholder="请输入三围" />
+									<label>身高</label>
+									<input type="text" class="form-control" name="player_height" v-model="player_height" autocomplete="off" placeholder="请输入身高" />
+									<label>体重</label>
+									<input type="text" class="form-control" name="player_weight" v-model="player_weight" autocomplete="off" placeholder="请输入体重" />
+									<label>电话</label>
+									<input type="text" class="form-control" name="player_tel" v-model="player_tel" autocomplete="off" placeholder="请输入电话" />
+									<label>邮箱</label>
+									<input type="text" class="form-control" name="player_email" v-model="player_email" autocomplete="off" placeholder="请输入邮箱" />
+									<label>特长</label>
+									<input type="text" class="form-control" name="player_strong" v-model="player_strong" autocomplete="off" placeholder="请输入特长" />
+									<label>代表作</label>
+									<input type="text" class="form-control" name="player_magnum" v-model="player_magnum" autocomplete="off" placeholder="请输入代表作" />
+									<label>角色</label>
+									<input type="text" class="form-control" name="player_role" v-model="player_role" autocomplete="off" placeholder="请输入角色" />
+									<label>正在参与类型</label>
+									<input type="text" class="form-control" name="being_type" v-model="being_type" autocomplete="off" placeholder="请输入正在参与类型" />
+									<label>正在参与电影</label>
+									<input type="text" class="form-control" name="being_movie" v-model="being_movie" autocomplete="off" placeholder="请输入正在参与电影" />
+									<!-- <label>热度</label>
+									<input type="text" class="form-control" name="player_heat" v-model="player_heat" autocomplete="off" placeholder="请输入热度" /> -->
+									<label>投票数</label>
+									<input type="text" class="form-control" name="player_vote" v-model="player_vote" autocomplete="off" placeholder="请输入投票数" />
+									<label>音频</label>
+									<input type="file" name="player_voice" multiple="multiple" />
+									<!-- <input type="text" class="form-control" name="player_voice" v-model="player_voice" autocomplete="off" placeholder="请输入投票数" /> -->
+									<label>视频</label>
+									<input type="file" name="player_video" multiple="multiple" />
+									<!-- <input type="text" class="form-control" name="player_video" v-model="player_video" autocomplete="off" placeholder="请输入投票数" /> -->
+									
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+									<!-- <button type="button" class="btn btn-primary">提交更改</button> -->
+									<input type="submit" name="sub" value="提交更改" class="btn btn-primary" />
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		// // 防止用户从地址栏直接进入
+		// if(window.sessionStorage.getItem('user')==''|| window.sessionStorage.getItem('user')==null){
+		// 	window.location.href="index.html"
+		// }
+		new Vue({
+			el: '#box',
+			data: {
+				url:'http://192.168.1.170/dream/php/',
+				list: [],
+				current_page:1,  // 当前页
+				page_size:5, // 条数
+				count:'',  // 总条数
+				page_count:'',  // 总页数
+				player_serial: '', // 编号
+				id:'',
+				player_name: '', // 姓名
+				player_stage: '', // 艺名
+				player_img: '', // 照片
+				player_age: '', // 年龄
+				player_height: '', // 身高
+				player_weight: '', // 体重
+				player_strong: '', // 特长
+				player_magnum: '', // 代表作
+				player_role: '', // 角色
+				player_vote: '', // 投票数
+				player_voice: '', // 音频
+				player_video: '', // 视频
+				index:0,
+				player_sex:'' , // 性别
+				san_wei:'', // 三围
+				player_tel:'', // 电话
+				player_email:'',  // 邮箱
+				// player_heat:'' , // 热度
+				being_type:'' ,  // 类型
+				being_movie:''   // 参与电影
+			},
+			methods: {
+				// 编辑模态框
+				compile(index) {
+					console.log(index)
+					// console.log(this.list[index])
+					this.index = index
+					this.id = this.list[index].id
+					console.log(this.id)
+					this.player_serial = this.list[index].player_serial // 编号
+					this.player_name = this.list[index].player_name // 姓名
+					this.player_stage = this.list[index].player_stage // 艺名
+					this.player_img = this.list[index].player_img // 照片
+					this.player_age = this.list[index].player_age // 年龄
+					this.player_height = this.list[index].player_height // 身高
+					this.player_weight = this.list[index].player_weight // 体重
+					this.player_strong = this.list[index].player_strong // 特长
+					this.player_magnum = this.list[index].player_magnum // 代表作
+					this.player_role = this.list[index].player_role // 角色
+					this.player_vote = this.list[index].player_vote // 投票数
+					this.player_voice = this.list[index].player_voice // 音频
+					this.player_video = this.list[index].player_video // 视频
+					this.player_sex = this.list[index].player_sex // 性别
+					this.san_wei = this.list[index].san_wei // 三围
+					this.player_tel = this.list[index].player_tel // 电话
+					this.player_email = this.list[index].player_email // 邮箱
+					// this.player_heat = this.list[index].player_heat // 热度
+					this.being_type = this.list[index].being_type // 正在参与类型
+					this.being_movie = this.list[index].being_movie // 参与电影
+				},
+				del(index){
+					console.log(this.list[index].id)
+					this.id=this.list[index].id
+					let url = this.url+'del_players.php?id=' + this.id;
+					axios.get(url).then(res => {
+						if(res.data=='ok'){
+							alert('删除成功')
+							this.load()
+						}else{
+							alert('删除失败')
+						}
+					})
+				},
+				// 添加
+				add() {
+					this.list.push()
+					this.id='add'
+					this.player_name = '' // 姓名
+					this.player_stage = '' // 艺名
+					this.player_img = '' // 照片
+					this.player_age = '' // 年龄
+					this.player_height = '' // 身高
+					this.player_weight = '' // 体重
+					this.player_strong = '' // 特长
+					this.player_magnum = '' // 代表作
+					this.player_role = '' // 角色
+					this.player_vote = '' // 投票数
+					this.player_voice = '' // 音频
+					this.player_video = '' // 视频
+					this.player_sex = ''// 性别
+					this.san_wei = '' // 三围
+					this.player_tel = '' // 电话
+					this.player_email = '' // 邮箱
+					// this.player_heat = '' // 热度
+					this.being_type = '' // 正在参与类型
+					this.being_movie = '' // 参与电影
+				},
+				// 上一页
+				up(){
+					if(this.current_page >0){
+						this.current_page--
+						this.load()
+					}else{
+						alert('当前第一页')
+					}
+				},
+				// 下一页
+				down(){
+					if(this.current_page <= this.page_count){
+						this.current_page++
+						this.load()
+					}else{
+						alert('最后一页了')
+					}
+				},
+				// 搜索查询
+				formCheck() {
+					let name = $('.user').val();
+					if (name == '') {
+						alert('请输入名字/艺名!');
+						return false;
+					}
+					// console.log(name)
+					let url = this.url+'search_player.php?name=' + name;
+					axios.get(url).then(res => {
+						// console.log(res.data)
+						if(res.data=='err'){
+							alert('没有找到相关信息')
+						}else{
+							this.list = res.data
+						}
+					})
+				},
+				blur(){
+					var a=Math.ceil(this.count/this.page_size)
+					// console.log(a,this.current_page)
+					if(Number(this.current_page)>a){
+						alert('一共'+this.page_count+'页')
+					}else{
+						// console.log(a,Number(this.current_page))
+						this.current_page=Number(this.current_page)
+						this.load()
+					}
+					
+				},
+				// 初始化
+				load() {
+					let url = this.url+"players.php?page_size="+this.page_size+"&page="+this.current_page
+					axios.get(url).then(res => {
+						console.log(res.data.all)
+						this.count=res.data.count
+						this.list = res.data.all
+						this.page_count=Math.ceil(this.count/this.page_size)
+						// console.log(this.count)
+						// console.log(this.page_size)
+						// console.log(Math.ceil(this.count/this.page_size))
+					})
+				}
+			},
+			mounted() {
+				this.load()
+			}
+		})
+	</script>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>活动规则</title>
+		<link href="css/adminStyle.css" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" type="text/css" href="./css/banner.css" />
+		<script src="js/jquery.js"></script>
+		<script src="js/public.js"></script>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/axios.js" type="text/javascript" charset="utf-8"></script>
+		<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+		<!-- 	<link href="./css/datetimepicker.min.css" rel="stylesheet">
+		<script src="./js/moment_with_locales.js"></script>
+		<script src="./js/bootstrap_datetimepicker.min.js"></script> -->
+	</head>
+	<body>
+		<div id="box">
+			<div class="wrap">
+				<div class="page-title">
+					<span class="modular fl"><i class="add_user"></i><em>活动规则</em></span>
+				</div>
+				<!-- <form action="http://192.168.0.23/dream/php/add_holiday.php" method="post"  enctype="multipart/form-data"> -->
+				<form>
+					<table class="list-style" v-for="(item,index) in list" :key="index">
+						<tr>
+							<td>节目名称</td>
+							<td>
+								<input type="text" name="title" v-model="item.title" id="" autocomplete="off" />
+							</td>
+						</tr>
+						<tr>
+							<td>节目口号</td>
+							<td>
+								<textarea rows="3" name="slogan" v-model="item.slogan"></textarea>
+							</td>
+						</tr>
+						<tr>
+							<td>节目宗旨</td>
+							<td>
+								<textarea rows="3" name="aim" v-model="item.aim" ></textarea>
+							</td>
+						</tr>
+						<tr>
+							<td>节目定位</td>
+							<td>
+								<textarea rows="3" name="orientation" v-model="item.orientation" ></textarea>
+							</td>
+						</tr>
+						<tr>
+							<td>节目内容</td>
+							<td>
+								<div v-for="(con,i) in item.all" :key="i">
+									<label>{{i+1}}、</label>
+									<input style="display: inline;width: 90%;" type="text" class="content_title" name="content_title" v-model="con.content_title" />
+									<textarea rows="3" class="content" name="content" v-model="con.content" ></textarea>
+									<!-- <textarea rows="3" name="content" v-model="con[i]" ></textarea> -->
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>主持人定位</td>
+							<td>
+								<textarea rows="3" name="compere" v-model="item.compere" ></textarea>
+							</td>
+						</tr>
+						<tr>
+							<td>节目播出形式</td>
+							<td>
+								<textarea rows="3" name="broadcast" v-model="item.broadcast" ></textarea>
+							</td>
+						</tr>
+						<tr>
+							<td>受众分析</td>
+							<td>
+								<textarea rows="3" name="audiences" v-model="item.audiences" ></textarea>
+							</td>
+						</tr>
+						<tr>
+							<td>节目效果预测</td>
+							<td>
+								<textarea rows="3" name="effect" v-model="item.effect" ></textarea>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<button type="button" class="btn btn-default"  @click="put_in()">提交</button>
+							</td>
+						</tr>
+					</table>
+				</form>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		// 防止用户从地址栏直接进入
+		if(window.sessionStorage.getItem('user')==''|| window.sessionStorage.getItem('user')==null){
+			window.location.href="index.html"
+		}
+		new Vue({
+			el: '#box',
+			data: {
+				list: [],
+				url:'http://192.168.1.170/dream/php/'
+			},
+			methods: {
+				put_in(){
+					var title=$('input[name=title]').val()  // 标题
+					var slogan=$('textarea[name=slogan]').val() // 口号
+					var aim=$('textarea[name=aim]').val()   // 宗旨
+					var orientation=$('textarea[name=orientation]').val()  // 定位
+					// var content_title=$('input[name=content_title]').val() // 内容标题
+					// var content=$('textarea[name=content]').val()
+					var compere=$('textarea[name=compere]').val() // 主持人定位
+					var broadcast=$('textarea[name=broadcast]').val() // 播出形式
+					var audiences=$('textarea[name=audiences]').val() // 受众分析
+					var effect=$('textarea[name=effect]').val() // 节目效果
+					// console.log(title,slogan,aim,orientation,content_title,content,compere,broadcast,audiences,effect)
+					var content_title=document.querySelectorAll('.content_title')
+					var content=document.querySelectorAll('.content')
+					// console.log(content,content_title)
+					var content_title_arr=[]
+					for(var i=0;i<content_title.length;i++){
+						// console.log(content_title[i].value)
+						content_title_arr.push(content_title[i].value)
+					}
+					console.log(content_title_arr)
+					var content_arr=[]
+					for(var i=0;i<content.length;i++){
+						// console.log(content[i].value)
+						content_arr.push(content[i].value)
+					}
+					// console.log(content_arr)
+					// console.log(JSON.stringify(content_arr))
+					let url = this.url+"add_holiday.php?title="+title+'&slogan='+slogan+'&aim='+aim+'&orientation='+orientation+'&content_title='+JSON.stringify(content_title_arr)+'&content='+JSON.stringify(content_arr)+'&compere='+compere+'&broadcast='+broadcast+'&audiences='+audiences+'&effect='+effect
+					axios.get(url).then(res => {
+						console.log(res.data)
+						if(res.data=='ok'){
+							alert('修改成功')
+							this.load()
+						}else{
+							alert('修改失败')
+						}
+					})
+				},
+				// 初始化图片
+				load() {
+					let url = this.url+"holiday.php"
+					axios.get(url).then(res => {
+						console.log(res.data)
+						this.list = res.data
+					})
+				}
+			},
+			mounted() {
+				this.load()
+			}
+		})
+	</script>
+</html>
