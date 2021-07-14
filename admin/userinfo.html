@@ -16,78 +16,30 @@
 	</head>
 	<body>
 		<div id="box">
-			<div class="wrap">
+			<div class="wrap" style="width: 50%;">
 				<div class="page-title">
-					<span class="modular fl"><i class="add_user"></i><em>全部礼物</em></span>
+					<span class="modular fl"><i class="add_user"></i><em>选手信息</em></span>
 				</div>
 				<table class="list-style" style="text-align: center;">
 					<tr>
-						<td>类型</td>
+						<td>电话</td>
 						<td>价格</td>
-						<td>图片</td>
 						<td>编辑</td>
 					</tr>
 					<tr v-for="(item,index) in list" :key="index">
 						<td>
-							{{item.gift_name}}
-							<!-- <input type="text" name="" id="" :value="" /> -->
+							{{item.phone}}
 						</td>
 						<td>
-							{{item.gift_price}}
-							<!-- <input type="text" name="" id="" :value="item.gift_price" /> -->
+							{{item.price}}
 						</td>
 						<td>
-							<!-- <input type="text" name="" id="" :value="item.gift_img" /> -->
-							<img :src="item.gift_img" style="width: 150px;height: 150px;">
-						</td>
-						<td>
-							<a title="编辑" @click="compile(index)" data-toggle="modal" data-target="#myModal">
-								<span>编辑</span>
-							</a>
 							<a title="删除" @click="del(item.id)">
 								<span>删除</span>
 							</a>
 						</td>
 					</tr>
-					<tr>
-						<td colspan="5">
-							<a style="margin: 50%;" @click="add()"  data-toggle="modal" data-target="#myModal">
-								<span class="glyphicon glyphicon-plus"></span>
-							</a>
-						</td>
-					</tr>
 				</table>
-			</div>
-			<!-- 模态框 -->
-			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-				aria-hidden="true">
-				<div class="modal-dialog">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h4 class="modal-title" id="myModalLabel">
-								数据编辑
-							</h4>
-						</div>
-						<div class="modal-body">
-							<form role="form" :action= "this.url+'add_gift.php'" method="post" enctype="multipart/form-data">
-								<div class="form-group">
-									<input type="hidden" v-model="id" name="id" id="" value="" />
-									<label>类型</label>
-									<input class="form-control" type="text" name="gift_name" v-model="gift_name" placeholder="请输入礼物名字" />
-									<label>价格</label>
-									<input class="form-control" type="text" name="gift_price" v-model="gift_price" placeholder="请输入价格"  />
-									<label>图片</label>
-									<input type="file" name="gift_img" />
-								</div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-default" data-dismiss="modal">关闭
-									</button>
-									<input type="submit" name="sub" value="提交更改" class="btn btn-primary" />
-								</div>
-							</form>
-						</div>
-					</div><!-- /.modal-content -->
-				</div><!-- /.modal -->
 			</div>
 		</div>
 	</body>
@@ -103,24 +55,12 @@
 				list: [],
 				index:'',
 				id:'',
-				gift_name:'',
-				gift_price:''
 			},
 			methods: {
-				// 模态框
-				compile(index) {
-					console.log(index)
-					this.index = index
-					this.id = this.list[index].id
-					console.log(this.id)
-					this.gift_name = this.list[index].gift_name // 礼物名字
-					this.gift_price = this.list[index].gift_price // 价格
-					// console.log(this.gift_name)
-				},
 				// 删除
 				del(id){
 					console.log(id)
-					let url = this.url+'del_gift.php?id=' + id;
+					let url = this.url+'delUserinfo.php?id=' + id;
 					axios.get(url).then(res => {
 						if(res.data=='ok'){
 							alert('删除成功')
@@ -130,20 +70,13 @@
 						}
 					})
 				},
-				// 添加
-				add() {
-					this.list.push({})
-					console.log(this.list)
-					this.id='add'
-					this.gift_name = '' // 礼物名字
-					this.gift_price = '' // 价格
-				},
 				// 初始化图片
 				load() {
-					let url = this.url+"gift.php?openid=openid"
+					let url = this.url+"userinfo.php"
 					axios.get(url).then(res => {
 						console.log(res)
 						this.list = res.data
+						console.log(res.data)
 					})
 				}
 			},
