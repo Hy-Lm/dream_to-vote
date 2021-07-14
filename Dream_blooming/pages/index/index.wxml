@@ -24,7 +24,7 @@
       <view class="content">{{contentTitle}}</view>
       <!-- 投票倒计时 -->
       <view class="down">
-        <image class="DownImage" src="../img/夏日沙滩边框.png" mode="aspectFill"></image>
+        <image class="DownImage" src="../img/xiari.png" mode="aspectFill"></image>
         <view class="downText">
           <view class="cast">投票倒计时</view>
           <view class="time">
@@ -54,7 +54,7 @@
       <view class="search">
         <input class="int" type="text" placeholder="请输入选手姓名或编号" bindinput="bindKeyInput" />
         <view class="btn" bindtap="searchBtn">
-          <image class="btnImg" src="../img/搜索图标.svg" mode="aspectFill"></image>
+          <image class="btnImg" src="../img/sousuo.svg" mode="aspectFill"></image>
         </view>
       </view>
       <!-- 切换 -->
@@ -112,7 +112,8 @@
                       <image src="../img/tong.png" mode="aspectFill" wx:if="{{index==2}}"
                         style="width:100%; height:100%"></image>
                     </view>
-                    <text>{{index+1}}</text>
+                  
+                    <text >{{index+1}}</text>
                   </view>
                   <view class="r_list_images">
                     <image src="{{item.imgUrls[0]}}"></image>
@@ -131,7 +132,7 @@
         <block>
           <swiper-item>
             <view style="width:92vw;height:400rpx;margin:0 auto;position: relative;">
-              <image src="../img/活动框.png" style="width:100%;" mode="aspectFill"></image>
+              <image src="../img/huo.png" style="width:100%;" mode="aspectFill"></image>
               <view class="huo" style="font-size:36rpx; padding-top:20rpx">
                 <view style=" text-align: center; width:100%">活动介绍</view>
                 <view class="jie">

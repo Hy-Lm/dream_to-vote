@@ -27,7 +27,7 @@
                 <!-- 选手编号 -->
                 <view class="playerBoxNumbers">{{dataItem.player_serial}}</view>
                 <view class="audios">
-                    <image bindtap="audioPlay" src="../img/音频商城.png" style="width:100%; height:100%"  mode="aspectFill" ></image>
+                    <image bindtap="audioPlay" src="../img/shang.png" style="width:100%; height:100%"  mode="aspectFill" ></image>
                 </view>
               </view>
               <!--  -->
