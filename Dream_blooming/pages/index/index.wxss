@@ -194,7 +194,7 @@
   width: 330rpx;
   height: 680rpx;
   /* border: 1px solid #000; */
-  margin-bottom: 40rpx;
+  margin-bottom: 55rpx;
   font-size: 14px;
 }
 

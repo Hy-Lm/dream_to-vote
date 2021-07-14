@@ -2,12 +2,17 @@
 .box{
     background-color: #F2F2F2;
     box-sizing: border-box;
+    height: 100vh;
     overflow: hidden;
+    
 }
 .content{
+    height: 100%;
     margin:0 30rpx;
     margin-top: 36rpx;
     padding-top: 30rpx;
+    padding-bottom:30rpx ;
+    margin-bottom:30rpx ;
     background-color: #fff;
 }
 .content>.title{
@@ -21,6 +26,9 @@
     font-size: 28rpx;
     color: #000000;
 }
+/* .con:nth-child(6){
+    padding: 52rpx;
+} */
 .con>.con_tit{
     text-align: center;
 }
@@ -30,4 +38,5 @@
 }
 .footer{
     float: right;
+    margin-bottom: 40rpx;
 }

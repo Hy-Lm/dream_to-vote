@@ -179,22 +179,23 @@
                 <view>三、节目宗旨：{{holiday.aim}}
                 </view>
                 <view> 四、节目定位：{{holiday.orientation}}。</view>
-                <view class="h_con"> 五、节目内容：
+                <view class="h_con"> 
+                五、节目内容：
                   <view class="h_con_item">
-                    <view>1、 舞台我做主</view>
-                    <view>{{holiday.content[0]}}</view>
+                    <view>1、 {{holiday.all[0].content_title}}</view>
+                    <view>{{holiday.all[0].content}}</view>
                   </view>
                   <view class="h_con_item">
-                    <view>2、 跨时代发声</view>
-                    <view>{{holiday.content[1]}}</view>
+                    <view>2、 {{holiday.all[1].content_title}}</view>
+                    <view>{{holiday.all[1].content}}</view>
                   </view>
                   <view class="h_con_item">
-                    <view>3、 历史大考验</view>
-                    <view>{{holiday.content[2]}}</view>
+                    <view>3、 {{holiday.all[2].content_title}}</view>
+                    <view>{{holiday.all[2].content}}</view>
                   </view>
                   <view class="h_con_item">
-                    <view>4、 人物包装秀 </view>
-                    <view>{{holiday.content[3]}}</view>
+                    <view>4、 {{holiday.all[3].content_title}} </view>
+                    <view>{{holiday.all[3].content}}</view>
                   </view>
                 </view>
                 <view> 六、主持人定位：{{holiday.compere}}</view>

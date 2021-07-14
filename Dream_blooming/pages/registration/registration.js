@@ -6,7 +6,7 @@ Page({
    */
   data: {
     // url:'http://192.168.43.216/dream/php/',
-    url:"http://www.hd512.com/dream/",
+    url:app.globalData.url,
     titles:"",
     types:'',
     role_name:"",
