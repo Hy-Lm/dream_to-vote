@@ -19,13 +19,13 @@ Page({
   formSubmit(e) {//点击完成时上传服务牌
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
     let itemData=e.detail.value
-    
+    itemData.role_number=this.data.role_number
     itemData.player_video=this.data.formImgBoxVideo
     itemData.player_voice=this.data.formImgBoxAudio
     itemData.player_img=this.data.formImgBoxImg
-    itemData.being_type="电影"
-    itemData.player_role="张小雅"
-    itemData.being_movie="《谁的青春不迷茫2》"
+    itemData.being_type=this.data.types
+    itemData.player_role=this.data.role_name
+    itemData.being_movie=this.data.titles
     console.log(itemData)
    
     for(let item in itemData){
