@@ -4,12 +4,13 @@
     background-color: #F2F2F2;
     box-sizing: border-box;
     overflow: hidden;
+    padding-bottom: 30rpx;
 }
 .content{
     margin:0 30rpx;
-    padding: 0 45rpx;
+    padding: 30rpx 45rpx;
     margin-top: 36rpx;
-    padding-top: 30rpx;
+    padding-bottom: 45rpx;
     background-color: #fff;
 }
 .content>.title{
@@ -38,7 +39,7 @@
     text-indent:0;
 }
 .footer{
-    margin-top: 30rpx;
+    margin-bottom: 15rpx;
     font-size: 28rpx;
     font-weight: bold;
     float:right;

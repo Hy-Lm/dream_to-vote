@@ -5,8 +5,6 @@ Page({
   data: {
     userInfo:[],
     holiday:'',//渲染规则
-    // url:"http://192.168.0.79/dream/php/",//叶飞
-    // url:"https://www.hd512.com/dream/",
     url:app.globalData.url,
     tabContentHeight:0,
     background:[],
@@ -535,7 +533,7 @@ endTime(val){
           console.log(res.data)
           that.setData({
             holiday:res.data[0],
-            tabContentHeight:1400,
+            tabContentHeight:1950,
             rankingShow:false,
             playersShow:false
           })

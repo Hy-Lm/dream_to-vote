@@ -123,3 +123,6 @@
 										  $phone=$_GET['phone'];  
 										  
 	phone.php  传递手机号phone=15735629946  获取余额
+	
+	userinfo.php 显示所有用户信息
+	

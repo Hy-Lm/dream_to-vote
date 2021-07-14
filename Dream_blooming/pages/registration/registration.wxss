@@ -71,7 +71,7 @@
   border: 1px dashed #707070;
 }
 .audioAdd{
-  width: calc(100% - 4rpx);
+  width: calc(100% - 30rpx);
   height: 140rpx;
   line-height: 140rpx;
   text-align: center;
@@ -80,7 +80,7 @@
   font-size: 50rpx;
 }
 .VideoAdd{
-  width: calc(100% - 4rpx);
+  width: calc(100% - 30rpx);
   height: 330rpx;
   line-height: 330rpx;
   text-align: center;

@@ -89,12 +89,14 @@ Page({
         tanchuangShou: true,
       })
     } else {
-      this.setData({
-        ifShow: false
-      })
+      
       wx.navigateTo({
         url: '../topUp/topup',
-        success: function (res) {}
+        success: function (res) {
+          this.setData({
+            ifShow: !this.data.ifShow
+          })
+        }
       })
     }
   },
@@ -113,7 +115,7 @@ Page({
         console.log(res)
         that.setData({
           giftItem: res.data,
-          ifShow: false,
+          ifShow: !that.data.ifShow,
         })
       }
     })
@@ -194,6 +196,9 @@ Page({
   },
   btnName() { //点击投票按钮
     var that = this;
+    that.setData({
+      ifShow: true,
+    })
     wx.getStorage({
       key: 'tab',
       success: function (res) {
@@ -303,7 +308,8 @@ Page({
    */
   onShow: function () {
     this.setData({
-      balance: wx.getStorageSync('price')
+      balance: wx.getStorageSync('price'),
+      ifShow:true
     })
   },
 
