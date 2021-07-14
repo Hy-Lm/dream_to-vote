@@ -93,7 +93,7 @@
                 </view>
                 <view class='balancesbox'>
                   <view bindtap="topUp">充值</view>
-                  <view>赠送</view>
+                  <view bindtap="Mymony">赠送</view>
                 </view>
               </view>
           
@@ -140,7 +140,7 @@
         </view>
       </view>
       <!-- 授权弹窗0 -->
-      <view class="tanchuang" wx:if="{{tanchuangShou}}">
+      <view class="tanchuang" bindtap="tanchuanFal" wx:if="{{tanchuangShou}}">
         <view class="tanchangBox">
             <text>请您先进行登录</text>
             <button class="tanchuanBtn" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">登录</button>

@@ -2,7 +2,7 @@
 <view class="box">
     <view class="header">
         <view class="balance">
-            <text class="left">账户余额：<text style="color:#FF0000;">0梦币</text></text>
+            <text class="left">账户余额：<text style="color:#FF0000;">{{price}}梦币</text></text>
             <text class="right" bindtap="doubt" >充值疑问请点击> </text>
         </view>
         <view>充值成功后，到账可能会有一定延迟，请耐心等待。</view>
@@ -12,7 +12,7 @@
         </view>
     </view>
     <view class="topup">
-    <view class="glod" wx:for="{{dataItem}}" bindtap="moneyBtn" data-cal="{{item}}" wx:key="index">
+    <view class="glod" wx:for="{{dataItem}}" bindtap="moneyBtn" data-index="{{index}}" data-cal="{{item}}" wx:key="index">
         <view class="con">
             <image src="../img/金币.svg"></image>
             <text class="left">{{item.money}}梦币</text>
