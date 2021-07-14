@@ -22,7 +22,7 @@ Page({
     borderColor: ["#FFf", "#fff", "#fff", "#fff", "#fff", "#fff", "#fff", "#fff"],
     boxImgSrc: "" //大屏显示图片路径，往下可删除
   },
-  tanchuanFal(){
+  tanchuanFal() {
     this.setData({
       tanchuangShou: false,
     })
@@ -35,37 +35,46 @@ Page({
         tanchuangShou: true,
       })
     } else {
-     
+
       // console.log('赠送', that.data.gifts.gift_price)
       var giftPrice = that.data.gifts.gift_price; //赠送的礼物价钱
-      wx.request({
-        url: that.data.url + 'give.php',
-        data: {
-          openid: wx.getStorageSync('tab'),
-          id:that.data.dataId,
-          gift_prices:giftPrice
-        },
-        header: {
-          'content-type': 'application/json' // 默认值
-        },
-        success(res) {
-          console.log(res)
-          if(res.data.code=='ok'){
-            wx.setStorageSync('price', res.data.prices)
-          that.setData({
-            balance: res.data.prices,
-            ifShow: false,
-          })
-          that.requests(that.data.dataId)
-          wx.showToast({
-            title: '赠送成功',
-            icon: 'none',
-            duration: 500
-          })
+      if (wx.getStorageSync('price') < giftPrice) {
+        wx.showToast({
+          title: '梦币不足，请充值',
+          icon: 'none',
+          duration: 2000
+        })
+      } else {
+        wx.request({
+          url: that.data.url + 'give.php',
+          data: {
+            openid: wx.getStorageSync('tab'),
+            id: that.data.dataId,
+            gift_prices: giftPrice
+          },
+          header: {
+            'content-type': 'application/json' // 默认值
+          },
+          success(res) {
+            console.log(res)
+            if (res.data.code == 'ok') {
+              wx.setStorageSync('price', res.data.prices)
+              that.setData({
+                balance: res.data.prices,
+                ifShow: false,
+              })
+              that.requests(that.data.dataId)
+              wx.showToast({
+                title: '赠送成功',
+                icon: 'none',
+                duration:2000
+              })
+            }
+
           }
-          
-        }
-      })
+        })
+      }
+
     }
 
   },
@@ -80,14 +89,14 @@ Page({
         tanchuangShou: true,
       })
     } else {
-    this.setData({
-      ifShow: false
-    })
-    wx.navigateTo({
-      url: '../topUp/topup',
-      success: function (res) {}
-    })
-  }
+      this.setData({
+        ifShow: false
+      })
+      wx.navigateTo({
+        url: '../topUp/topup',
+        success: function (res) {}
+      })
+    }
   },
   giftBtn() { //礼物按钮，请求礼物数据
     let that = this
@@ -286,7 +295,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    
+
   },
 
   /**
@@ -294,8 +303,8 @@ Page({
    */
   onShow: function () {
     this.setData({
-      balance:wx.getStorageSync('price')
-  })
+      balance: wx.getStorageSync('price')
+    })
   },
 
   /**

@@ -80,7 +80,7 @@ Page({
                             wx.showToast({
                                 title: '支付成功',
                                 icon: 'success',
-                                duration: 500
+                                duration: 2000
                             });
                             wx.request({
                                 url: that.data.url + 'menyPhone.php',
