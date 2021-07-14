@@ -1,0 +1,45 @@
+/* pages/deal/deal.wxss */
+/* pages/doubt/doubt.wxss */
+.box{
+    background-color: #F2F2F2;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+.content{
+    margin:0 30rpx;
+    padding: 0 45rpx;
+    margin-top: 36rpx;
+    padding-top: 30rpx;
+    background-color: #fff;
+}
+.content>.title{
+    font-size: 36rpx;
+    font-weight: bold;
+    color: #000000;
+    text-align: center;
+}
+.content > .con{
+    font-size: 28rpx;
+    text-indent:2em;
+    margin-top: 30rpx;
+    display: flex;
+}
+.con_title{
+    font-weight: Bold;
+    font-size: 28rpx;
+    text-decoration-line: underline;
+}
+.con>view>.title{
+    font-size: 28rpx;
+    text-align: center;
+    font-weight: bold;
+}
+.con>view>view{
+    text-indent:0;
+}
+.footer{
+    margin-top: 30rpx;
+    font-size: 28rpx;
+    font-weight: bold;
+    float:right;
+}

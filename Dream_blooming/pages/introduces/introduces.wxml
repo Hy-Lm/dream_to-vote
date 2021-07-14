@@ -1,0 +1,39 @@
+<!--活动详情页-->
+<view class="introduces">
+  <!-- 注意 -->
+  <view class="introduces_rule">
+    <view class="rule_icon">
+      <image src="../img/lindang.png"></image>
+    </view>
+    <view class="rule_con">
+      <view class="marquee">
+        <view class="main" style="transform: translateX({{move}}px);">
+          平台投票规则:本平台监控刷票行为,对于情节严重者包括不限于:取消刷票票数等
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 活动主题 -->
+  <view class="introduces_title">
+    <view class="title_con">活动主题</view>
+    <view class="title">{{dataItem.title}}</view>
+  </view>
+  <!-- 活动时间 -->
+  <view class="introduces_time">
+    <view class="title_con">活动时间</view>
+    <view class="times">
+      <view class="start_time">开始时间 :<text> {{start_time}}</text></view>
+      <view class="end_time">结束时间 :<text> {{end_time}}</text> </view>
+    </view>
+  </view>
+  <!-- 活动规则 -->
+  <view class="introduces_rules">
+    <view class="title_con">活动规则</view>
+    <view class="rules_content">每人每天可投10票,对同一个选手当天限投10票</view>
+  </view>
+  <!-- 活动内容 -->
+  <view class="introduces_content">
+    <view class="title_con">活动介绍</view>
+    <view class="content_content">{{dataItem.content}}</view>
+  </view>
+</view>

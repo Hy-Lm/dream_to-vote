@@ -1,0 +1,28 @@
+<!--pages/doubt/doubt.wxml-->
+<view class="box">
+    <view class="content">
+        <view class="title">充值帮助</view>
+        <view class="con">
+            <view class="con_tit">充值未到账怎么办？</view>
+            <view class="con_content">一般充值后梦币会即刻发放到您的梦币账户。如遇服务器拥堵，梦币到账可能有短时间的延迟，建议耐心等待，并刷新梦币余额界面查看梦币到账情况。若超过30分钟梦币仍未到账，请您联系官方客服进行处理。</view>
+        </view>
+        <view class="con">
+            <view class="con_tit">误充或充错了账号，可以退款吗？</view>
+            <view class="con_content"> 误充或充错帐号后，不能进行退款哦。建议您在充值前仔细核对充值帐号信息，以避免发生误充、充错帐号的情况。</view>
+        </view>
+        <view class="con">
+            <view class="con_tit">充值了梦币后，可以转移到其他的账号上吗？</view>
+            <view class="con_content">梦绽放平台的梦币无法在帐号之间进行转移。</view>
+        </view>
+        <view class="con">
+            <view class="con_tit">关于充值防骗</view>
+            <view class="con_content">请您不要接受他人以代充为借口向您索要帐号密码的行为，任何情况下不要将密码泄漏给他人。同时，建议您选择梦绽放官方充值渠道、梦绽放官方指定的充值系统进行充值，以避免通过不合法渠道充值导致您的资金损失。</view>
+        </view>
+        <view class="con">
+            特别提醒：未成年用户在使用梦绽放充值服务时，请在监护人的同意和指导下进行。
+        </view>
+        <view class="con">
+            <view class="footer">梦绽放平台</view>
+        </view>
+    </view>
+</view>

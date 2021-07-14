@@ -1,0 +1,212 @@
+<!--index.wxml-->
+<view class="container" style="position: absolute; left: 0rpx; top: 0rpx">
+  <!-- 头部轮播 -->
+  <view class="banner">
+    <swiper class="banner_swiper" indicator-dots="{{indicatorDots}}" indicator-dots="dots"
+      indicator-active-color="rgb(255,146,0)" indicator-color="rgb(255,255,255)" autoplay="{{bannerItem.autoplay}}"
+      interval="{{bannerItem.interval}}" duration="{{bannerItem.duration}}">
+      <block wx:for="{{background}}" wx:key="*this">
+        <swiper-item>
+          <view>
+            <image style="width: 100%; height: 520rpx;" mode="aspectFill" src="{{item}}"></image>
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view class="introduce" bindtap="introduceBtn" style="position: fixed; left: 594rpx; top: 232rpx">
+    活动介绍
+  </view>
+  <!-- 主体内容 -->
+  <view class="subject">
+    <view class="sub">
+      <!-- 活动标题 -->
+      <view class="content">{{contentTitle}}</view>
+      <!-- 投票倒计时 -->
+      <view class="down">
+        <image class="DownImage" src="../img/夏日沙滩边框.png" mode="aspectFill"></image>
+        <view class="downText">
+          <view class="cast">投票倒计时</view>
+          <view class="time">
+            <view> <text>{{times.day}}</text> 天</view>
+            <view> <text>{{times.hour}}</text> 时</view>
+            <view> <text>{{times.minute}}</text> 分</view>
+            <view> <text>{{times.seconds}}</text> 秒</view>
+          </view>
+        </view>
+      </view>
+      <!-- 票数，参赛选手，访问量 -->
+      <view class="parameter">
+        <view class="parameter_box">
+          <view>{{masterData}}</view>
+          <view>参赛选手</view>
+        </view>
+        <view class="parameter_box">
+          <view>{{accumulative}}</view>
+          <view>累计投票</view>
+        </view>
+        <view class="parameter_box">
+          <view>{{volume}}</view>
+          <view>访问量</view>
+        </view>
+      </view>
+      <!-- 搜索框 -->
+      <view class="search">
+        <input class="int" type="text" placeholder="请输入选手姓名或编号" bindinput="bindKeyInput" />
+        <view class="btn" bindtap="searchBtn">
+          <image class="btnImg" src="../img/搜索图标.svg" mode="aspectFill"></image>
+        </view>
+      </view>
+      <!-- 切换 -->
+      <view class="tab">
+        <view style="color:{{color[0]}}" bindtap="tabClick" data-cap="0">全部选手</view>
+        <view style="color:{{color[1]}}" calss="tabBtn" bindtap="tabClick" data-cap="1">排行榜</view>
+        <view style="color:{{color[2]}}" calss="tabBtn" bindtap="tabClick" data-cap="2">角色报名</view>
+        <view style="color:{{color[3]}}" calss="tabBtn" bindtap="tabClick" data-cap="3">规则</view>
+      </view>
+    </view>
+
+    <!-- 切换内容 -->
+    <view class="tabContent" style="height:{{tabContentHeight}}rpx">
+      <!--  -->
+      <swiper current="{{current}}" bindchange="bindchanges" class="bind">
+        <block>
+          <swiper-item>
+            <view class="player">
+              <view bindtap="detailsBtn" class="playerBox" wx:for="{{players}}" wx:key="index" data-cap="{{item}}"
+                style="position: relative;">
+                <view class="playerBoxNumber" style="position: absolute; left: 250rpx; top: 0rpx">{{item.player_serial}}</view>
+                <view class="playerImg">
+                  <image src="{{item.imgUrls[0]}}" mode="aspectFill" style="width:100%;height:440rpx"></image>
+                </view>
+                <view class="playerName"><text style="font-weight:700">{{item.player_name}}</text>
+                  (艺名:{{item.player_stage}}) </view>
+                <view class="playerVote">
+                  {{item.player_vote}}票
+                </view>
+                <view class="playerRole">
+                  参加角色({{item.player_role}})
+                  <text style="color:#FF9200; float:right;">详情></text>
+                </view>
+                <view class="playerBtn">
+                  <view class="playerBtn_btn">我要投票</view>
+                </view>
+              </view>
+              <view style="width:100vw; color:#f00; text-align: center;">{{NotItem}}</view>
+            </view>
+          </swiper-item>
+        </block>
+        <block>
+          <swiper-item>
+            <!-- 排行榜 -->
+            <view class="ranking">
+              <view class="ranking_list" wx:for="{{rankingItem}}" wx:key="index" bindtap="detailsBtn"
+                data-cap="{{item}}">
+                <view style="display: flex;align-items:center; ">
+                  <view class="r_list_icon">
+                    <view style="width:100%; height:100%; position: absolute; z-index:-100; margin-top: 10rpx;">
+                      <image src="../img/jin.png" mode="aspectFill" wx:if="{{index==0}}"
+                        style="width:100%; height:100%"></image>
+                      <image src="../img/ying.png" mode="aspectFill" wx:if="{{index==1}}"
+                        style="width:100%; height:100%"></image>
+                      <image src="../img/tong.png" mode="aspectFill" wx:if="{{index==2}}"
+                        style="width:100%; height:100%"></image>
+                    </view>
+                    <text>{{index+1}}</text>
+                  </view>
+                  <view class="r_list_images">
+                    <image src="{{item.imgUrls[0]}}"></image>
+                  </view>
+                  <view class="r_list_name">
+                    {{item.player_name}}
+                  </view>
+                </view>
+                <view class="r_list_vote">
+                  共获<text>{{item.player_vote}}</text>票
+                </view>
+              </view>
+            </view>
+          </swiper-item>
+        </block>
+        <block>
+          <swiper-item>
+            <view style="width:92vw;height:400rpx;margin:0 auto;position: relative;">
+              <image src="../img/活动框.png" style="width:100%;" mode="aspectFill"></image>
+              <view class="huo" style="font-size:36rpx; padding-top:20rpx">
+                <view style=" text-align: center; width:100%">活动介绍</view>
+                <view class="jie">
+                  {{activity}}
+                </view>
+              </view>
+            </view>
+            <view class="player" style="margin-top:46rpx">
+              <view class="playerBox" wx:for="{{character}}" wx:key="index" data-cap="{{item}}"
+                style="position: relative;">
+                <view bindtap="characterBox" style="position: relative;" data-cap="{{index}}">
+                  <view class="characterBox_s" wx:if="{{characterHeight[index]}}" style="height:{{characterHeight[index]}}" >
+                    {{item.role_con}}
+                  </view>
+                  <view class="playerImg">
+                    <image src="{{item.role_img}}" mode="aspectFill" style="width:100%;height:440rpx"></image>
+                  </view>
+                  <view class="playerName"><text style="font-weight:700">{{item.role_name}}</text></view>
+                  <view class="playerVote">
+                    {{item.role_number}}
+                  </view>
+                  <view class="playerRole">
+                    <text class="roleCon">({{item.role_con}})</text>
+                    <text style="color:#FF9200; float:right;">详情></text>
+                  </view>
+                </view>
+                <view class="playerBtn">
+                  <view class="playerBtn_btn" bindtap="wantToBtn" data-cap="{{item}}" >我要报名</view>
+                </view>
+              </view>
+              <view style="width:100vw; color:#f00; text-align: center;">{{NotItem}}</view>
+            </view>
+          </swiper-item>
+        </block>
+        <block>
+          <swiper-item>
+            <!-- 规则 -->
+            <!-- <Holiday></Holiday> -->
+            <view class="holiday">
+              <view class="holiday-title">活动规则</view>
+              <view class="holiday-content">
+                <!-- 节目名称 -->
+                <view>一、节目名称：{{holiday.title}}</view>
+                <view>二、节目口号：{{holiday.slogan}}</view>
+                <view>三、节目宗旨：{{holiday.aim}}
+                </view>
+                <view> 四、节目定位：{{holiday.orientation}}。</view>
+                <view class="h_con"> 五、节目内容：
+                  <view class="h_con_item">
+                    <view>1、 舞台我做主</view>
+                    <view>{{holiday.content[0]}}</view>
+                  </view>
+                  <view class="h_con_item">
+                    <view>2、 跨时代发声</view>
+                    <view>{{holiday.content[1]}}</view>
+                  </view>
+                  <view class="h_con_item">
+                    <view>3、 历史大考验</view>
+                    <view>{{holiday.content[2]}}</view>
+                  </view>
+                  <view class="h_con_item">
+                    <view>4、 人物包装秀 </view>
+                    <view>{{holiday.content[3]}}</view>
+                  </view>
+                </view>
+                <view> 六、主持人定位：{{holiday.compere}}</view>
+                <view>七、节目播出形式：{{holiday.broadcast}}</view>
+                <view>八、受众分析：{{holiday.audiences}}</view>
+                <view>九、{{holiday.effect}}</view>
+              </view>
+            </view>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+    <view class="myBtn" wx:if="{{current==1}}" bindtap="myBtn">我要报名</view>
+  </view>
+</view>

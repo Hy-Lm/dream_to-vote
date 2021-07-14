@@ -1,0 +1,123 @@
+<!--pages/registration/registration.wxml-->
+<!-- 角色报名 -->
+
+<view class="apply">
+  <scroll-view scroll-y="true" class="scroll_view">
+    <view class="scroll_viewBox">
+      选手信息填写
+    </view>
+    <form catchsubmit="formSubmit">
+      <view class="inputs" style="font-weight:600;border:none">
+        {{types}} 《{{titles}}》
+      </view>
+      <view class="inputs" style="font-weight:600;border:none">
+        竞选角色:{{role_number}}---{{role_name}}
+    
+      </view>
+      <view class="inputs">
+        <view style="display:flex;">姓 <view style="width:30rpx"></view> 名: </view>
+        <view style=" margin-left:30rpx;">
+          <input name="player_name" placeholder="请输入您的姓名" value="" class="weui-input" />
+        </view>
+      </view>
+      <view class="inputs">
+        <view style="display:flex;">姓 <view style="width:30rpx"></view> 别: </view>
+        <view style=" margin-left:30rpx;">
+          <radio-group name="player_sex">
+            <label>
+              <radio value="男" class="radio" />男</label>
+            <label style="margin-left: 20rpx;">
+              <radio value="女" class="radio" />女</label>
+          </radio-group>
+        </view>
+      </view>
+      <view class="inputs">
+        <view style="display:flex;">年 <view style="width:30rpx"></view> 龄: </view>
+        <view style=" margin-left:30rpx;">
+          <input name="player_age" placeholder="请输入您的年龄" value="" class="weui-input" />
+        </view>
+      </view>
+      <view class="inputs">
+        <view style="display:flex;">身 <view style="width:30rpx"></view> 高: </view>
+        <view style=" margin-left:30rpx;">
+          <input name="player_height" placeholder="请输入您的身高/单位cm" value="" class="weui-input" />
+        </view>
+      </view>
+      <view class="inputs">
+        <view style="display:flex;">体 <view style="width:30rpx"></view> 重: </view>
+        <view style=" margin-left:30rpx;">
+          <input name="player_weight" placeholder="请输入您的体重/单位kg" value="" class="weui-input" />
+        </view>
+      </view>
+      <view class="inputs">
+        <view style="display:flex;">三 <view style="width:30rpx"></view> 围: </view>
+        <view style=" margin-left:30rpx;">
+          <input name="san_wei" placeholder="请输入您的三围/格式71cm-63cm-82cm" value="" class="weui-input" />
+        </view>
+      </view>
+      <view class="inputs">
+        <view style="display:flex;">艺 <view style="width:30rpx"></view> 名: </view>
+        <view style=" margin-left:30rpx;">
+          <input name="player_stage" placeholder="请输入您的艺名" value="" class="weui-input" />
+        </view>
+      </view>
+      <view class="inputs">
+        <view style="display:flex;">特 <view style="width:30rpx"></view> 长: </view>
+        <view style=" margin-left:30rpx;">
+          <input name="player_strong" placeholder="请输入您的特长" value="" class="weui-input" />
+        </view>
+      </view>
+      <view class="inputs">
+        <view>代表作: </view>
+        <view style=" margin-left:30rpx;">
+          <input name="player_magnum" placeholder="请输入您的代表作" value="" class="weui-input" />
+        </view>
+      </view>
+      <view class="inputs">
+        <view style="display:flex;">电 <view style="width:30rpx"></view> 话: </view>
+        <view style=" margin-left:30rpx;">
+          <input name="player_tel" placeholder="请输入您的电话" value="" class="weui-input" />
+        </view>
+      </view>
+      <view class="inputs">
+        <view  style="display:flex;">邮 <view style="width:30rpx"></view> 箱: </view>
+        <view style=" margin-left:30rpx;">
+          <input name="player_email" placeholder="请输入您的邮箱" value="" class="weui-input" />
+        </view>
+      </view>
+
+      <!-- 上传图片 -->
+      <view class="inputs">
+        <view  style="display:flex;">图片上传</view>
+      </view>
+      <view class="formImg">
+        <!-- 上传的图片 -->
+        <view class="formImgBox" wx:for="{{formImgBoxImg}}" wx:key="index" bindtap="previewImage">
+          <image mode="aspectFill" src="{{item}}" style="width: 100%; height: 100%;"></image>
+        </view>
+        <view class="formImgBox_jia" bindtap="chooseImageTap" wx:if="{{formImgBoxImg.length<6}}" data-cap="1">
+          +
+        </view>
+      </view>
+      <view class="inputs" style="margin-top:30rpx">
+        <view  style="display:flex;">音频上传</view>
+      </view>
+      <audio  src="{{formImgBoxAudio}}"  controls loop wx:if="{{formImgBoxAudio}}"></audio>
+      <view class="audioAdd" data-cap="2" bindtap="chooseImageTap" wx:if="{{!formImgBoxAudio}}">
+        +
+      </view>
+      <view class="inputs" style="margin-top:30rpx">
+        <view  style="display:flex;">视频上传</view>
+      </view>
+      <video  src="{{formImgBoxVideo}}"  controls loop wx:if="{{formImgBoxVideo}}" style="margin-botton:30rpx"></video>
+      <view class="VideoAdd"  object-fit="cover" data-cap="3" bindtap="chooseImageTap" wx:if="{{!formImgBoxVideo}}">
+        +
+      </view>
+
+      <view class="btn-area">
+        <button class="areaBtn"  formType="submit"> 完 成</button>
+      </view>
+    </form>
+   
+  </scroll-view>
+</view>

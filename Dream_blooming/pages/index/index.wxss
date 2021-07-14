@@ -1,0 +1,416 @@
+/**index.wxss**/
+/* 懒加载动画 */
+.load {
+  text-align: center;
+  width: 100%;
+  height: 30rpx;
+  line-height: 1rpx;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+}
+
+.banner {
+  width: 100%;
+  height: 520rpx;
+  line-height: 100rpx;
+  text-align: center;
+  background: #eee;
+  position: fixed;
+}
+
+.banner_swiper {
+  width: 100%;
+  height: 100%;
+}
+
+/* 活动介绍 */
+.introduce {
+  text-align: center;
+  width: 156rpx;
+  height: 54rpx;
+  line-height: 54rpx;
+  background: #FF9200;
+  border: 1px solid #fff;
+  border-radius: 27rpx 0 0 27rpx;
+  border-right: none;
+  position: fixed;
+  top: 150rpx;
+  right: 0;
+  color: #fff;
+  font-size: 28rpx;
+  z-index: 10;
+}
+
+/* 主体内容 */
+.subject {
+  width: 100%;
+  /* padding: 36rpx 26rpx 0; */
+  /* background:#ccc; */
+  background: #fff;
+  /* height: 2000rpx; */
+  position: relative;
+  top: 490rpx;
+  border-radius: 40rpx;
+}
+
+.sub {
+  padding: 36rpx 26rpx 0;
+}
+
+/* 活动标题 */
+.content {
+  width: 100%;
+  text-align: center;
+  font-size: 44rpx;
+  font-weight: 700;
+}
+
+/* 倒计时 */
+.down {
+  width: 100%;
+  height: 120rpx;
+  margin: 28rpx 0;
+  background: #000;
+  position: relative;
+}
+
+.DownImage {
+  width: 100%;
+  height: 120rpx;
+}
+
+.downText {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-align: center;
+  font-size: 28rpx;
+  color: #fff;
+  font-family: AliHYAiHei, AliHYAiHei-Regular;
+}
+
+.cast {
+  height: 40rpx;
+  margin-top: 16rpx;
+}
+
+.time {
+  width: 440rpx;
+  margin: 6rpx auto;
+  height: 40rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* 参数 */
+.parameter {
+  width: 100%;
+  height: 120rpx;
+  /* border: 1px solid #000; */
+  display: flex;
+  justify-content: space-between;
+}
+
+.parameter_box {
+  width: 33%;
+  text-align: center;
+  font-size: 14px;
+}
+
+.parameter_box view:first-child {
+  font-size: 18px;
+  margin-bottom: 18rpx;
+}
+
+/* 搜索框 */
+.search {
+  width: 520rpx;
+  height: 70rpx;
+  margin: 20rpx auto 10rpx;
+  border: 2px solid rgba(255, 146, 0, 1);
+  border-radius: 20rpx;
+  display: flex;
+  overflow: hidden;
+  background:rgba(255, 146, 0, 1);
+}
+
+.int {
+  width: 80%;
+  height: 100%;
+  padding-left: 20rpx;
+  font-size: 14px;
+  background: #fff;
+}
+
+.btn {
+  width: 20%;
+  height: 100%;
+  text-align: center;
+  line-height: 75rpx;
+  background: rgba(255, 146, 0, 1);
+}
+
+.btnImg {
+  width: 32rpx;
+  height: 32rpx;
+}
+
+.tab {
+  padding: 30rpx 40rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* .tab view:first-child{
+  color:rgba(255,146,0,1)
+} */
+/* 切换内容 */
+.bind {
+  height: 100%;
+}
+
+.tabContent {
+  width: 100%;
+  /* height: 2000rpx; */
+}
+
+.player {
+  padding: 36rpx 26rpx 0;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+/* 全部选手 */
+.playerBox {
+  width: 330rpx;
+  height: 680rpx;
+  /* border: 1px solid #000; */
+  margin-bottom: 40rpx;
+  font-size: 14px;
+}
+
+.playerBoxNumber {
+  position: absolute;
+  height: 54rpx;
+  line-height: 54rpx;
+  padding: 0 15rpx;
+  text-align: center;
+  background: rgba(0, 0, 0, .4);
+  border-radius: 0 20rpx 0 20rpx;
+  right: 0;
+  color: #fff;
+
+}
+
+.playerImg {
+  border-radius: 20rpx;
+  overflow: hidden;
+}
+
+.playerVote,
+.playerName {
+  margin: 12rpx 0;
+}
+
+.playerVote {
+  font-weight: 700;
+}
+
+.playerRole {
+  color: #898989;
+}
+
+.playerBtn {
+  width: 100%;
+  margin-top: 20rpx;
+}
+
+.playerBtn_btn {
+  width: 260rpx;
+  height: 72rpx;
+  background: #FF9200;
+  text-align: center;
+  line-height: 72rpx;
+  margin: 0 auto;
+  color: #fff;
+  font-size: 28rpx;
+  border-radius: 20rpx;
+}
+
+.scrollView {
+  height: 100vh;
+  border: 1px solid #000;
+
+}
+
+
+
+/* 排行榜 */
+.ranking {
+  padding: 36rpx 26rpx 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.ranking_list {
+  width: 100%;
+  height: 110rpx;
+  line-height: 110rpx;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.r_list_icon {
+  width: 80rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  float: left;
+  position: relative;
+}
+
+.r_list_images {
+  margin: 0 30rpx;
+  float: left;
+  width: 80rpx;
+  height: 80rpx;
+  opacity: 1;
+}
+
+.r_list_name {
+  font-size: 28rpx;
+  font-family: PingFang SC, PingFang SC-Regular;
+  font-weight: 400;
+  text-align: left;
+  color: #000000;
+}
+
+.r_list_vote {
+  font-size: 28rpx;
+  font-family: PingFang SC, PingFang SC-Regular;
+  font-weight: 400;
+  text-align: left;
+  color: #000000;
+}
+
+.r_list_vote>text {
+  color: #FF9200;
+}
+
+.r_list_images>image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+/* components/holiday/holiday.wxss */
+/* 规则 */
+.holiday {
+  width: 100%;
+  padding: 30rpx 20rpx;
+  box-sizing: border-box;
+  height: 2006rpx;
+  opacity: 1;
+  background: #f2f2f2;
+}
+
+.holiday-title {
+  margin-bottom: 20rpx;
+  width: 100%;
+  text-align: center;
+  height: 50rpx;
+  opacity: 1;
+  font-size: 36rpx;
+  font-family: PingFang SC, PingFang SC-Regular;
+  font-weight: 400;
+  color: #000000;
+  letter-spacing: 4rpx;
+}
+
+.holiday-content {
+  height: 1880rpx;
+  opacity: 1;
+  font-size: 28rpx;
+  font-family: PingFang SC, PingFang SC-Regular;
+  font-weight: 400;
+  text-align: left;
+  color: #000000;
+}
+
+.holiday-content>view {
+  margin: 5rpx 0;
+}
+
+.h_con>view {
+  margin: 5rpx 0;
+}
+
+/* 角色报名 */
+.huo {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+}
+
+.jie {
+  display: -webkit-box;
+  overflow: hidden;
+  width: 540rpx;
+  height: 220rpx;
+  /* border: 1px solid #000; */
+  margin: 20rpx auto 0;
+  font-size: 24rpx;
+  text-indent: 2em;
+  -webkit-line-clamp: 7;
+  -webkit-box-orient: vertical;
+
+}
+
+.roleCon {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+  width: 240rpx;
+}
+
+.characterBox_s {
+  width:calc(100% - 40rpx);
+  /* height:570rpx; */
+  position: absolute;
+  background: #ccc;
+  top: 0;
+  left: 0;
+  border-radius: 20rpx;
+  font-size: 24rpx;
+  padding:15rpx 20rpx ;
+}
+/* 我要报名按钮*/
+.myBtn {
+  width: 100vw;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  background: #FF9200;
+  color:#fff;
+  font-size: 36rpx;
+  position:fixed;
+  left:0;
+  bottom: 0;
+}

@@ -1,0 +1,138 @@
+.introduces {
+  width: 100%;
+  /* padding: 0 30rpx; */
+  box-sizing: border-box;
+}
+.introduces>view:not(:first-child){
+  padding: 0 30rpx;
+  width: 100%;
+  border-bottom: 2rpx solid #f8f8f8;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+/* 注意 */
+.introduces_rule {
+  width: 100%;
+  height: 60rpx;
+  opacity: 1;
+  background: #fff9d1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 30rpx;
+}
+
+.introduces_rule .rule_icon {
+  width: 28rpx;
+  height: 28rpx;
+  opacity: 1;
+  /* background: #ff9200; */
+  margin-right: 28rpx;
+}
+
+.introduces_rule .rule_icon>image {
+  width: 100%;
+  height: 100%;
+}
+
+.introduces_rule .rule_con {
+  flex: 1;
+  opacity: 1;
+  font-size: 24rpx;
+  font-family: PingFang SC, PingFang SC-Regular;
+  font-weight: 400;
+  text-align: left;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: #ff9200;
+}
+
+/* 活动主题 */
+.introduces_title {
+  height: 154rpx;
+}
+.title_con {
+  opacity: 1;
+  font-size: 36rpx;
+  font-family: PingFang SC, PingFang SC-Regular;
+  font-weight: 400;
+  text-align: left;
+  color: #000000;
+  margin-bottom: 20rpx;
+
+}
+
+.introduces_title .title {
+  padding-left: 16rpx;
+  opacity: 1;
+  font-size: 28rpx;
+  font-family: PingFang SC, PingFang SC-Regular;
+  font-weight: 400;
+  text-align: left;
+  color: #898989;
+}
+
+/* 活动时间 */
+.introduces_time {
+  height: 192rpx;
+}
+
+.introduces_time .times {
+  padding-left: 16rpx;
+  display: flex;
+  flex-direction: column;
+  opacity: 1;
+  font-size: 28rpx;
+  font-family: PingFang SC, PingFang SC-Regular;
+  font-weight: 400;
+  text-align: left;
+  color: #898989;
+}
+
+.introduces_time .times>view {
+  margin: 5rpx 0;
+}
+
+/* 活动规则 */
+.introduces_rules {
+  height: 142rpx;
+}
+
+.introduces_rules .rules_content {
+  padding-left: 16rpx;
+  opacity: 1;
+  font-size: 28rpx;
+  font-family: PingFang SC, PingFang SC-Regular;
+  font-weight: 400;
+  text-align: left;
+  color: #898989;
+}
+/* .活动内容 */
+.introduces_content{
+ 
+}
+.content_content{
+  padding-left: 16rpx;
+  opacity: 1;
+font-size: 28rpx;
+font-family: PingFang SC, PingFang SC-Regular;
+font-weight: 400;
+text-align: left;
+color: #898989;
+}
+/* 文字跑马灯 */
+.marquee {
+  position: relative;
+  width: 100%;
+  height: 50rpx;
+  line-height: 50rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  font-size: 24rpx;
+  color: rgba(255,146,0,1);
+}
+.main {
+  position: absolute;
+}

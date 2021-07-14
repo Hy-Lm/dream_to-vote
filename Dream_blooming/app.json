@@ -1,0 +1,21 @@
+{
+  "pages": [
+   
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/registration/registration",
+    "pages/introduces/introduces",
+    "components/holiday/holiday",
+    "pages/topUp/topup",
+    "pages/doubt/doubt",
+    "pages/details/details",
+    "pages/deal/deal"
+    
+  ],
+  "window": {},
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "functionalPages": {
+    "independent": true
+  }
+}

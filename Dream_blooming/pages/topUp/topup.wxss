@@ -1,0 +1,59 @@
+/* pages/topUp/topup.wxss */
+.box{
+    width: 100vw;
+    height: 100vh;
+    padding: 15px;
+    background-color: #F2F2F2;
+    box-sizing: border-box;
+}
+radio .wx-radio-input{
+    width: 26rpx;
+    height: 26rpx;
+}
+.header{
+    font-size: 24rpx;
+    color: #898989;
+}
+.left{
+    font-size: 28rpx;
+    color: black;
+}
+.balance,.chongzhi{
+    height: 40rpx;
+    line-height: 40rpx;
+    padding: 10rpx 0;
+}
+.right{
+    float:right;
+}
+
+.chongzhi >text{
+    color:#FF0000;
+}
+.glod{
+    height: 100rpx;
+    padding: 12rpx 30rpx;
+    background-color: #fff;
+    margin-bottom: 20rpx;
+}
+.con{
+    padding: 30rpx 0;
+    height: 40rpx;
+    line-height: 40rpx;
+}
+.con>image{
+    width: 40rpx;
+    height: 40rpx;
+    vertical-align: middle ;
+}
+.con>.left{
+    margin-left: 20rpx;
+    font-size: 28rpx;
+    vertical-align: middle ;
+}
+.con>.right{
+    float: right;
+    font-size: 28rpx;
+    color: #FF0000;
+    vertical-align: middle ;
+}

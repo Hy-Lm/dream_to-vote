@@ -1,0 +1,219 @@
+.details{
+  width: 100vw;
+  height: 100vh;
+  /* border: 1px solid #000; */
+}
+.scrollYs{
+  width: 100vw;
+  /* height: 2000px; */
+  /* background: #eee; */
+}
+.activity,
+.titName{
+  width: 100vw;
+  font-size: 36rpx;
+  text-align: center;
+  margin-top: 32rpx;
+  margin-bottom: 8rpx;
+}
+.activity{
+  font-size: 28rpx;
+}
+/* 票数，热度，排名 */
+.popularity{
+  width: 100%;
+  /* border: 1px solid #000; */
+  display: flex;
+  padding-top: 40rpx;
+}
+.popularityBox{
+  width: calc(100vw / 2);
+  /* border: 1px solid #000; */
+  text-align: center;
+  font-size:28rpx;
+}
+.popularityNumber{
+  font-size:36rpx;
+  margin-bottom: 20rpx;
+}
+/* 选手详情 */
+.player{
+  width: 100%;
+  margin-top: 40rpx;
+  padding: 0 34rpx;
+}
+.playerBox{
+  width: calc(100% - 68rpx);
+  border: 4rpx dashed  #ff9200;
+  height: 400rpx;
+  display: flex;
+}
+.playerBoxImg{
+  width: 294rpx;
+  height: 100%;
+  border-radius: 12rpx;
+  overflow: hidden;
+  position: relative;
+}
+.audios{
+  width: 50rpx;
+  height: 50rpx;
+  background:#ff9200;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-radius: 12rpx;
+  overflow: hidden;
+}
+.playerBoxNumbers{
+  position: absolute;
+  top:0;
+  right:0;
+  background: rgba(0,0,0,.4);
+  color:#fff;
+  padding: 0 15rpx;
+  border-radius:  0 12rpx 0 12rpx ;
+}
+.specialty{
+  width: calc(100% - 324rpx);
+  height: calc(100% - 64rpx);
+  padding: 32rpx 12rpx;
+  font-size: 28rpx;
+}
+.specialtybox{
+    width: 100%;
+    margin-bottom: 12rpx;
+    display: flex;
+    justify-content:space-between;
+}
+.specialtybox view:nth-child(2){
+  width: 200rpx;
+}
+.playerBtn{
+  width:  calc(100% - 172rpx);
+  height: 72rpx;
+  margin: 40rpx 86rpx;
+  display: flex;
+  justify-content:space-between;
+}
+.btn{
+  width: 260rpx;
+  height: 72rpx;
+  background: #ff9200;
+  border-radius: 12rpx;
+  font-size:28rpx ;
+  color:#fff;
+  display: flex;
+  justify-content:center;
+  align-items:center;
+}
+.btnImg{
+  width: 32rpx;
+  height: 32rpx;
+  margin-left: 10rpx;
+}
+.styleShow{
+  width: calc(100% - 60rpx) ;
+  margin: 0 30rpx;
+}
+.showVideo{
+  width: 100%;
+  height: 340rpx;
+  background: #ff9200;
+ margin-bottom: 20rpx;
+}
+.myVideo{
+  width: 100%;
+  height: 100%;
+}
+.styleShowImg{
+  width: 100%;
+  display: flex;
+  flex-wrap:wrap;
+  justify-content:space-between;
+  margin-bottom: 40rpx;
+}
+.styleShowImgBox{
+  width: 200rpx;
+  height: 280rpx;
+  margin-bottom: 28rpx;
+}
+/* 图片放大 */
+.boxImg{
+  width: 100vw;
+  height: 100vh;
+  background: #000;
+  display: flex;
+  align-items:center;
+  position: absolute;
+  top:0;
+  left:0;
+}
+.boxImgV{
+  width: 100vw;
+  height: 80vh;
+}
+.gift{
+  width: calc(100% - 40rpx);
+  height: 360rpx;
+  padding: 20rpx;
+  display: flex;
+  flex-wrap:wrap;
+  font-size: 28rpx;
+  text-align: center;
+}
+.giftBox{
+    width: calc(25% - 10rpx);
+    height: 180rpx;
+}
+.balances{
+  margin-top: 10rpx;
+  width: 100%;
+  display: flex;
+  justify-content:space-between;
+}
+.balancesbox{
+  width: 180rpx;
+  display: flex;
+  justify-content:space-between;
+}
+.balancesbox view{
+  background: #FF9200;
+  color:#fff;
+  width: 72rpx;
+  height: 36rpx;
+  line-height: 36rpx;
+  text-align: center;
+  border-radius:18rpx;
+  font-size: 28rpx;
+}
+.tanchuang{
+  width: 100vw;
+  height: 100vh;
+  background:rgba(0,0,0,.4);
+  position: fixed;
+  top:0;
+  left:0;
+}
+.tanchangBox{
+  width: 400rpx;
+  height: 200rpx;
+  background:#fff;
+  margin: 400rpx auto;
+  padding-top: 20rpx;
+  border-radius: 20rpx;
+}
+
+.tanchangBox text{
+  display: block;
+  width: 100%;
+  height: 50rpx;
+  line-height: 50rpx;
+  text-align: center;
+}
+.tanchuanBtn{
+  background: #FF9200;
+  margin-top: 30rpx;
+  color:#fff;
+  font-weight: 400;
+}

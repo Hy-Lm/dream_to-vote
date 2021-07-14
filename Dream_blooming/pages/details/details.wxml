@@ -1,0 +1,149 @@
+<!--pages/details/details.wxml-->
+<view class="details">
+<!-- 选手详情页 -->
+    <scroll-view scroll-y="true" class="scrollYs" wx-if="{{show==true}}">
+    <!-- 选手姓名，和编号 -->
+      <view class="titName"> {{dataItem.player_serial}}号 {{dataItem.player_name}} </view>
+    <!-- 参加活动 -->
+      <view class="activity">正在参加 {{dataItem.being_type}}《{{dataItem.being_movie}}》{{dataItem.player_role}} 评选 </view>
+    <!-- 票数，热度，排名 -->
+      <view class="popularity">
+          <view class="popularityBox">
+            <view class="popularityNumber">{{dataItem.player_vote}}</view>
+            <view>票数</view>
+          </view>
+          <view class="popularityBox">
+            <view class="popularityNumber">{{dataItem.ranking}}</view>
+            <view>排名</view>
+          </view>
+      </view>
+      <!-- 选手详情 -->
+      <view class="player">
+        <view wx:if="{{ifShow==true}}">
+          <view style="font-size:36rpx; margin-bottom: 16rpx;">选手介绍</view>
+          <view class="playerBox">
+              <view class="playerBoxImg">
+                <image src="{{dataItem.imgUrls[0]}}" style="width:100%; height:100%"  mode="aspectFill" ></image>
+                <!-- 选手编号 -->
+                <view class="playerBoxNumbers">{{dataItem.player_serial}}</view>
+                <view class="audios">
+                    <image bindtap="audioPlay" src="../img/音频商城.png" style="width:100%; height:100%"  mode="aspectFill" ></image>
+                </view>
+              </view>
+              <!--  -->
+              <view style="display:none" >
+                  <audio src="{{dataItem.player_voice}}" id="myAudio" loop="{{false}}"></audio>
+                </view>
+              <view class="specialty">
+                <view class="specialtybox">
+                  <view  wx:if="{{dataItem.player_name}}">
+                    姓名:{{dataItem.player_name}}
+                  </view>
+                  <view  wx:if="{{dataItem.player_stage}}">
+                    艺名:{{dataItem.player_stage}}
+                  </view>
+                </view>
+                <view class="specialtybox">
+                  <view  wx:if="{{dataItem.player_sex}}">
+                    性别:{{dataItem.player_sex}}
+                  </view>
+                  <view  wx:if="{{dataItem.player_age}}">
+                    年龄:{{dataItem.player_age}}
+                  </view>
+                </view>
+                <view class="specialtybox">
+                  <view  wx:if="{{dataItem.player_height}}">
+                    升高:{{dataItem.player_height}}
+                  </view>
+                  <view  wx:if="{{dataItem.player_weight}}">
+                    体重:{{dataItem.player_weight}}
+                  </view>
+                </view>
+                <view class="specialtybox"  wx:if="{{dataItem.san_wei}}">
+                  三围:{{dataItem.san_wei}}
+                </view>
+                <view class="specialtybox" wx:if="{{dataItem.player_strong}}">
+                  特长:{{dataItem.player_strong}}
+                </view>
+                <view class="specialtybox" wx:if="{{dataItem.player_magnum}}">
+                  代表作:{{dataItem.player_magnum}}
+                </view>
+              </view>
+          </view>
+        </view>
+        
+        <view wx:if="{{ifShow!=true}}" style="width: calc(100% - 68rpx);height:500rpx; border: 4rpx dashed #ff9200; padding-top:20rpx">
+          <view style="margin:20rpx;border-bottom:2px solid #ff9200; display:inline; ">礼物</view>
+          <view class="gift">
+              <view style="border:2px solid {{borderColor[index]}}" class="giftBox" wx:for="{{giftItem}}" wx:key="index" bindtap="giftItemBtn" data-cap="{{item}}" data-indexs="{{index}}">
+                  <view style="width:80rpx;height:80rpx;margin:12rpx auto 0" >
+                    <image src="{{item.gift_img}}"  mode="aspectFill" style="width:100%;height:100%"></image>
+                  </view>
+                  <view >
+                    {{item.gift_name}}
+                  </view>
+                  <view style="color:#898989">
+                    {{item.gift_price}}梦币
+                  </view>
+              </view>
+              
+              <view class="balances">
+                <view style="color:#F00">
+                  余额:{{balance}}梦币
+                </view>
+                <view class='balancesbox'>
+                  <view bindtap="topUp">充值</view>
+                  <view>赠送</view>
+                </view>
+              </view>
+          
+          
+            </view>
+        </view>
+      </view>
+      <view class="playerBtn">
+          <view class="btn" bindtap="btnName">
+            我要投票
+          </view>
+          <view class="btn"  bindtap="giftBtn">
+            送礼物
+            <view class="btnImg" >
+              <image src="../img/li.svg" style="width:100%; height:100%"  mode="aspectFill" ></image>
+            </view>
+          </view>
+      </view>
+      <!-- 风采展示 -->
+      <!-- 视频展示 -->
+      <view class="styleShow">
+        <view style="font-size:36rpx;">风采展示</view>
+        <view style="font-size:28rpx;margin:10rpx 0">视频展示</view>
+        <view class="showVideo">
+                  <video 
+              class="myVideo" 
+              src="{{dataItem.player_video}}" 
+              show-fullscreen-btn="{{false}}"
+              object-fit="cover"
+            ></video>   
+        </view>
+        <view style="font-size:28rpx;margin:10rpx 0">照片展示</view>
+        <!-- 照片 -->
+        <view class="styleShowImg">
+          <view class="styleShowImgBox" wx:for="{{dataItem.imgUrls}}" wx:key="index" data-cap="{{item}}" bindtap="styleShows">
+            <image src="{{item}}" style="width:100%; height:100%"  mode="aspectFill" ></image>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+    <view class="boxImg" wx-if="{{show!=true}}" bindtap="boxImgs">
+        <view class="boxImgV" id="boxImgV">
+        <image src="{{boxImgSrc}}" style="width:100%; height:100%"  mode="aspectFill" ></image>
+        </view>
+      </view>
+      <!-- 授权弹窗0 -->
+      <view class="tanchuang" wx:if="{{tanchuangShou}}">
+        <view class="tanchangBox">
+            <text>请您先进行登录</text>
+            <button class="tanchuanBtn" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">登录</button>
+        </view>
+      </view>
+</view>

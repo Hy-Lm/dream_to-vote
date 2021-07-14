@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "Holiday":"/components/holiday/holiday"
+  },
+  "navigationStyle": "custom"
+}

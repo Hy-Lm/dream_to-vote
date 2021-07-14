@@ -1,0 +1,33 @@
+/* pages/doubt/doubt.wxss */
+.box{
+    background-color: #F2F2F2;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+.content{
+    margin:0 30rpx;
+    margin-top: 36rpx;
+    padding-top: 30rpx;
+    background-color: #fff;
+}
+.content>.title{
+    font-size: 36rpx;
+    font-weight: bold;
+    color: #000000;
+    text-align: center;
+}
+.con{
+    margin: 52rpx;
+    font-size: 28rpx;
+    color: #000000;
+}
+.con>.con_tit{
+    text-align: center;
+}
+.con>.con_content{
+    text-align: left;
+    color: #898989;
+}
+.footer{
+    float: right;
+}
