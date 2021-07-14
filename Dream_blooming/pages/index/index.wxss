@@ -194,7 +194,7 @@
   width: 330rpx;
   height: 680rpx;
   /* border: 1px solid #000; */
-  margin-bottom: 40rpx;
+  margin-bottom: 70rpx;
   font-size: 14px;
 }
 
@@ -391,7 +391,7 @@
 }
 
 .characterBox_s {
-  width:calc(100% - 40rpx);
+  width:calc(100% - 24rpx);
   /* height:570rpx; */
   position: absolute;
   background: #ccc;
@@ -399,7 +399,7 @@
   left: 0;
   border-radius: 20rpx;
   font-size: 24rpx;
-  padding:15rpx 20rpx ;
+  padding:15rpx 13rpx ;
 }
 /* 我要报名按钮*/
 .myBtn {

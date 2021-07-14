@@ -115,12 +115,12 @@ Page({
             if(that.data.character.length/2%1==1){
               let number=that.data.character.length/2
               that.setData({
-                tabContentHeight:number*740+440
+                tabContentHeight:number*770+440
               })
             }else{
               let number=that.data.character.length/2+0.5
               that.setData({
-                tabContentHeight:number*740+440
+                tabContentHeight:number*770+440
               })
             }
           return false
@@ -148,7 +148,7 @@ Page({
           }
           let number=that.data.character.length/2
           that.setData({
-            tabContentHeight:number*740+440
+            tabContentHeight:number*770+440
           })
        }
       }else{
@@ -167,7 +167,7 @@ Page({
     arrw.forEach(item=>{
       arrH.push("")
     })
-    arrH[res.currentTarget.dataset.cap]="570rpx"
+    arrH[res.currentTarget.dataset.cap]="580rpx"
     this.setData({
       characterHeight:arrH
     })
@@ -175,6 +175,7 @@ Page({
   },
   // 排行榜数据
   ranking(size,page){
+    console.log(size)
     let that=this
     wx.request({
       url: this.data.url+'reserve_players.php',
@@ -186,6 +187,7 @@ Page({
         'content-type': 'application/json' // 默认值
       },
       success (res) {
+        console.log(res)
         // that.setData({
         //   rankingItem:res.data
         // })
@@ -206,6 +208,8 @@ Page({
             that.setData({
               tabContentHeight:number*120
             })
+          console.log(that.data.tabContentHeight,number)
+
           return false
         }else{
           if(page==1){
@@ -234,10 +238,11 @@ Page({
             }
             
           }
-          let number=that.data.players.length
+          let number=that.data.rankingItem.length
           that.setData({
             tabContentHeight:number*120
           })
+          console.log(that.data.tabContentHeight,number)
        }
 
 
@@ -284,12 +289,12 @@ players(size,page,all){
           if(that.data.players.length/2%1==1){
             let number=that.data.players.length/2
             that.setData({
-              tabContentHeight:number*740
+              tabContentHeight:number*760
             })
           }else{
             let number=that.data.players.length/2+0.5
             that.setData({
-              tabContentHeight:number*740
+              tabContentHeight:number*760
             })
           }
         return false
@@ -317,7 +322,7 @@ players(size,page,all){
         }
         let number=that.data.players.length/2
         that.setData({
-          tabContentHeight:number*740
+          tabContentHeight:number*760
         })
      }
     }else{
