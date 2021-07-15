@@ -197,13 +197,12 @@
 				load() {
 					let url = this.url+"roles.php?page_size="+this.page_size+"&page="+this.current_page
 					axios.get(url).then(res => {
-						// console.log(res)
+						console.log(res)
 						// this.type=res.data.type
 						// this.title=res.data.title
 						this.count=res.data.count
 						this.list = res.data.all
 						this.page_count=Math.ceil(this.count/this.page_size)
-						// console.log(this.page_count)
 					})
 				}
 			},

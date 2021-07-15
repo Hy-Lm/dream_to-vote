@@ -1,5 +1,5 @@
 <?php
-//角色报名
+//角色
 include('./public.php');
 //每页从哪里开始，到哪里结束
 	if(isset($_GET['page'])){
@@ -15,6 +15,7 @@ include('./public.php');
 	$row1=$res1->fetch_assoc();
 $sql="select * from role limit $start,$page_size";
 $res=$conn->query($sql);
+$arr=[];
 while($row=$res->fetch_assoc()){
 	$row['role_img']=$URL.$row['role_img'];//图片
 	$row['type']=$row1['type'];//电影类型
@@ -24,10 +25,16 @@ while($row=$res->fetch_assoc()){
 $sql1="select * from role"; 
 		$res1=$conn->query($sql1);
 		$row1=$res1->fetch_assoc();
+		$arr1=[];
 		//得到全部选手的长度
 		while($row1=$res1->fetch_assoc()){
 			$arr1 []=$row1;
 		}
-		$myArray= (object) array('all' =>$arr,'count'=>count($arr1)+1); //将多个对象添加给一个数组给数组
+		if($res1->num_rows>0){
+			$arrCount= intval(count($arr1))+1;
+		}else{
+			$arrCount=0;
+		}
+		$myArray= (object) array('all' =>$arr,'count'=>$arrCount); //将多个对象添加给一个数组给数组
 		echo json_encode($myArray);
 ?>

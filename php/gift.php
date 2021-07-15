@@ -5,6 +5,7 @@
 	// if($openid=='openid'){
 		$sql="select * from gift";
 		$res=$conn->query($sql);
+		$arr=[];
 		while($row=$res->fetch_assoc()){
 			$row['gift_img']=$URL.$row['gift_img'];
 			$arr [] =$row;
