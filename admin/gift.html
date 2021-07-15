@@ -30,14 +30,11 @@
 					<tr v-for="(item,index) in list" :key="index">
 						<td>
 							{{item.gift_name}}
-							<!-- <input type="text" name="" id="" :value="" /> -->
 						</td>
 						<td>
 							{{item.gift_price}}
-							<!-- <input type="text" name="" id="" :value="item.gift_price" /> -->
 						</td>
 						<td>
-							<!-- <input type="text" name="" id="" :value="item.gift_img" /> -->
 							<img :src="item.gift_img" style="width: 150px;height: 150px;">
 						</td>
 						<td>
@@ -137,6 +134,7 @@
 					this.id='add'
 					this.gift_name = '' // 礼物名字
 					this.gift_price = '' // 价格
+					this.load()
 				},
 				// 初始化图片
 				load() {
@@ -144,6 +142,7 @@
 					axios.get(url).then(res => {
 						console.log(res)
 						this.list = res.data
+						console.log(this.list)
 					})
 				}
 			},
