@@ -46,7 +46,7 @@
 		}
 		$res=$conn->query($sql);
 		if($res){
-			echo "<script>alert('提交成功');history.go(-1);</script>";
+			echo "<script>alert('提交成功');history.go(-1)</script>";
 		}else{
 			echo "<script>alert('提交上传失败')</script>";
 		}
