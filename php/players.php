@@ -31,14 +31,20 @@
 			$arr[]=$row;
 		}
 		
-		$sql1="select * from dream_players";    //limit  范围
+		$sql1="select * from dream_players";
 		$res1=$conn->query($sql1);
 		$row1=$res1->fetch_assoc();
+		$arr1=[];
 		//得到全部选手的长度
 		while($row1=$res1->fetch_assoc()){
 			$arr1 []=$row1;
 		}
-		$myArray= (object) array('all' =>$arr,'count'=>count($arr1)+1); //将多个对象添加给一个数组给数组
+		if($res1->num_rows>0){
+			$arrCount= intval(count($arr1))+1;
+		}else{
+			$arrCount=0;
+		}
+		$myArray= (object) array('all' =>$arr,'count'=>$arrCount); //将多个对象添加给一个数组给数组
 		echo json_encode($myArray);
 	
 ?>

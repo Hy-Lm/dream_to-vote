@@ -215,8 +215,8 @@
 				list: [],
 				current_page:1,  // 当前页
 				page_size:5, // 条数
-				count:'',  // 总条数
-				page_count:'',  // 总页数
+				count:'1',  // 总条数
+				page_count:'1',  // 总页数
 				player_serial: '', // 编号
 				id:'',
 				player_name: '', // 姓名
@@ -244,7 +244,7 @@
 				// 编辑模态框
 				compile(index) {
 					console.log(index)
-					// console.log(this.list[index])
+					console.log(this.list[index])
 					this.index = index
 					this.id = this.list[index].id
 					console.log(this.id)
@@ -284,8 +284,10 @@
 				},
 				// 添加
 				add() {
+					console.log(this.list)
 					this.list.push()
-					this.id='add'
+					this.id = 'add'
+					console.log(this.id)
 					this.player_name = '' // 姓名
 					this.player_stage = '' // 艺名
 					this.player_img = '' // 照片
@@ -362,9 +364,9 @@
 						this.count=res.data.count
 						this.list = res.data.all
 						this.page_count=Math.ceil(this.count/this.page_size)
-						// console.log(this.count)
-						// console.log(this.page_size)
-						// console.log(Math.ceil(this.count/this.page_size))
+						if(this.list== undefined){
+							this.list=[]
+						}
 					})
 				}
 			},
