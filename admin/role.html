@@ -85,11 +85,11 @@
 								<div class="form-group">
 									<input type="hidden" v-model="id" name="id" id="" value="" />
 									<label>角色名</label>
-									<input class="form-control" type="text" name="role_name" v-model="role_name" placeholder="请输入礼物名字" />
+									<input class="form-control" type="text" name="role_name" v-model="role_name" placeholder="请输入角色名" />
 									<label>图片</label>
 									<input type="file" name="role_img"  multiple="multiple" />
-									<label>番位</label>
-									<input class="form-control" type="text" name="role_number" v-model="role_number" placeholder="请输入价格"  />
+									<label>角色编号</label>
+									<input class="form-control" type="text" name="role_number" v-model="role_number" placeholder="请输入角色编号"  />
 									<label>介绍</label>
 									<textarea style="width: 100%;" rows="6" cols="" name="role_con" v-model="role_con"></textarea>
 								</div>
@@ -160,6 +160,7 @@
 					this.role_name = '' // 角色名
 					this.role_number = '' // 番位
 					this.role_con = '' // 介绍
+					this.load()
 				},
 				blur(){
 					// Math.ceil(this.count/this.page_size)   总页数
