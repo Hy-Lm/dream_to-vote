@@ -391,11 +391,16 @@ endTime(val){
   },
   introduceBtn() { //点击事件跳转
     var that = this
+    var obj={}
+    obj['introduces']=that.data.introduces
+    obj['holiday']=that.data.holiday
+    // console.log(obj,'22222222222222222222')
     wx.navigateTo({
       url: '../introduces/introduces',
       success: function(res) {
         // 通过eventChannel向被打开页面传送数据
-        res.eventChannel.emit('acceptDataFromOpenerPage', { data: that.data.introduces })
+        res.eventChannel.emit('acceptDataFromOpenerPage', { data:obj })
+
       }
     })
   },
@@ -543,6 +548,7 @@ endTime(val){
   onShow: function () {//页面打开
     this.details()
     this.pageView()
+    this.holiday()
     this.setData({
       pages: 1
     })
@@ -559,7 +565,7 @@ endTime(val){
 
   },
   onLoad() {
-    console.log(app.globalData.openid)
+    // console.log(app.globalData.openid)
     if (wx.getUserProfile) {
       this.setData({
         canIUseGetUserProfile: true
@@ -568,6 +574,7 @@ endTime(val){
     this.players(4,this.data.pages,"all")
     this.details()
     this.pageView()
+    this.holiday()
     // this.ranking(10,this.data.pages)//在初始化是排行榜数据不能请求
   },
   /**

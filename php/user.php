@@ -27,6 +27,7 @@ if($res->num_rows){//有记录
 			$sql="select * from dream_players where id='$players_id'";
 			$res=$conn->query($sql);
 			$row=$res->fetch_assoc();
+			$vote=null;
 			$vote=$row['player_vote']+1;
 			// echo $vote;
 			//更新数据
