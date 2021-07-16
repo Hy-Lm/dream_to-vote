@@ -550,7 +550,8 @@ endTime(val){
     this.pageView()
     this.holiday()
     this.setData({
-      pages: 1
+      pages: 1,
+      rankingItem:[]
     })
     console.log(this.data.current)
     if(this.data.current==0){
