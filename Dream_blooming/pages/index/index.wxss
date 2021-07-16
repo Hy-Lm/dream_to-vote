@@ -198,7 +198,7 @@ text-align: center;
   width: 330rpx;
   height: 680rpx;
   /* border: 1px solid #000; */
-  margin-bottom: 70rpx;
+  margin-bottom: 60rpx;
   font-size: 14px;
 }
 

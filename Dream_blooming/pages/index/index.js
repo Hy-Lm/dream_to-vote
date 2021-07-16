@@ -96,6 +96,7 @@ Page({
             characterShow:false,
           })
         if(res.data.all.length<size){
+          console.log(没有数据了)
           that.setData({
             characterShow:false,
             NotItem:"没有数据了"
@@ -105,7 +106,7 @@ Page({
             datas.forEach(element => {
               arrItem.push(element)
             });
-            console.log(that.data.character)
+            // console.log(that.data.character)
             that.setData({
               character:arrItem,
               characterShow:true,
@@ -142,7 +143,7 @@ Page({
               that.setData({
                 character:arrItem
               })
-              console.log(that.data.pages)
+              // console.log(that.data.pages)
           }
           let number=that.data.character.length/2
           that.setData({
@@ -242,8 +243,6 @@ Page({
           })
           console.log(that.data.tabContentHeight,number)
        }
-
-
        
       }
     })
@@ -270,19 +269,19 @@ players(size,page,all){
           playersShow:false,
         })
       if(res.data.all.length<size){
+        console.log("没有数据了")
         that.setData({
           playersShow:false,
           NotItem:"没有数据了"
         })
-        let arrItem=that.data.players
+          let arrItem=that.data.players
           let datas=res.data.all
           datas.forEach(element => {
             arrItem.push(element)
           });
           console.log(that.data.players)
           that.setData({
-            players:arrItem,
-            playersShow:true,
+            players:arrItem
           })
           if(that.data.players.length/2%1==1){
             let number=that.data.players.length/2
@@ -494,7 +493,8 @@ endTime(val){
         playersShow:false,
         NotItem:"没有数据了",
         rankingShow:true,
-        characterShow:false
+        characterShow:false,
+        rankingItem:[]
       })
       this.ranking(10,this.data.pages)
 
