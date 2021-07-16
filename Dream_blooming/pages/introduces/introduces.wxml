@@ -29,7 +29,39 @@
   <!-- 活动规则 -->
   <view class="introduces_rules">
     <view class="title_con">活动规则</view>
-    <view class="rules_content">每人每天可投10票,对同一个选手当天限投10票</view>
+    <view class="holiday">
+              <view class="holiday-content">
+                <!-- 节目名称 -->
+                <view>一、节目名称：{{holiday.title}}</view>
+                <view>二、节目口号：{{holiday.slogan}}</view>
+                <view>三、节目宗旨：{{holiday.aim}}
+                </view>
+                <view> 四、节目定位：{{holiday.orientation}}。</view>
+                <view class="h_con"> 
+                五、节目内容：
+                  <view class="h_con_item">
+                    <view>1、 {{holiday.all[0].content_title}}</view>
+                    <view>{{holiday.all[0].content}}</view>
+                  </view>
+                  <view class="h_con_item">
+                    <view>2、 {{holiday.all[1].content_title}}</view>
+                    <view>{{holiday.all[1].content}}</view>
+                  </view>
+                  <view class="h_con_item">
+                    <view>3、 {{holiday.all[2].content_title}}</view>
+                    <view>{{holiday.all[2].content}}</view>
+                  </view>
+                  <view class="h_con_item">
+                    <view>4、 {{holiday.all[3].content_title}} </view>
+                    <view>{{holiday.all[3].content}}</view>
+                  </view>
+                </view>
+                <view> 六、主持人定位：{{holiday.compere}}</view>
+                <view>七、节目播出形式：{{holiday.broadcast}}</view>
+                <view>八、受众分析：{{holiday.audiences}}</view>
+                <view>九、{{holiday.effect}}</view>
+              </view>
+            </view>
   </view>
   <!-- 活动内容 -->
   <view class="introduces_content">

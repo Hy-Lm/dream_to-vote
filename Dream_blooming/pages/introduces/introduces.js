@@ -13,6 +13,7 @@ Page({
     mainWidth: 0,
     move: 0,
     timer: "",
+    holiday:''
   },
   /**
    * 生命周期函数--监听页面加载
@@ -24,11 +25,12 @@ Page({
     const eventChannel = this.getOpenerEventChannel()
     // 监听acceptDataFromOpenerPage事件，获取上一页面通过eventChannel传送到当前页面的数据
     eventChannel.on('acceptDataFromOpenerPage', function(data) {
-      console.log(data)
+      console.log(data.data)
       that.setData({
-        dataItem:data.data,
-        start_time:time.formatTime(data.data.start_time,'Y-M-D h:m:s'),
-        end_time:time.formatTime(data.data.endTime,'Y-M-D h:m:s')
+        dataItem:data.data.introduces,
+        holiday:data.data.holiday,
+        start_time:time.formatTime(data.data.introduces.start_time,'Y-M-D h:m:s'),
+        end_time:time.formatTime(data.data.introduces.endTime,'Y-M-D h:m:s')
       })
     })
   },

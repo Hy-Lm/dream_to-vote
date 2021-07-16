@@ -97,18 +97,53 @@
 }
 
 /* 活动规则 */
-.introduces_rules {
-  height: 142rpx;
+/* .introduces_rules {
+  /* height: 142rpx;
+} */
+
+/* 规则 */
+.introduces_rules{
+   width: 100%;
+  padding-right: 30rpx;
+  box-sizing: border-box;
+  margin-bottom: 5rpx;
+}
+.holiday {
+ 
+  opacity: 1;
+  /* background: #f2f2f2; */
+  color: #898989;
 }
 
-.introduces_rules .rules_content {
-  padding-left: 16rpx;
+.holiday-title {
+  margin-bottom: 20rpx;
+  width: 100%;
+  text-align: center;
+  height: 50rpx;
+  opacity: 1;
+  font-size: 36rpx;
+  font-family: PingFang SC, PingFang SC-Regular;
+  font-weight: 400;
+  /* color: #000000; */
+  letter-spacing: 4rpx;
+}
+
+.holiday-content {
+  /* height: 1880rpx; */
   opacity: 1;
   font-size: 28rpx;
   font-family: PingFang SC, PingFang SC-Regular;
   font-weight: 400;
   text-align: left;
-  color: #898989;
+  /* color: #000000; */
+}
+
+.holiday-content>view {
+  margin: 5rpx 0;
+}
+
+.h_con>view {
+  margin: 5rpx 0;
 }
 /* .活动内容 */
 
