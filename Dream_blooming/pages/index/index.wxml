@@ -59,10 +59,10 @@
       </view>
       <!-- 切换 -->
       <view class="tab">
-        <view style="color:{{color[0]}}" bindtap="tabClick" data-cap="0">全部选手</view>
-        <view style="color:{{color[1]}}" calss="tabBtn" bindtap="tabClick" data-cap="1">排行榜{{}}</view>
-        <view style="color:{{color[2]}}" calss="tabBtn" bindtap="tabClick" data-cap="2">角色报名</view>
-        <view style="color:{{color[3]}}" calss="tabBtn" bindtap="tabClick" data-cap="3">规则</view>
+        <view style="color:{{color[0]}}" class="tabBtn" bindtap="tabClick" data-cap="0">全部选手</view>
+        <view style="color:{{color[1]}}"  class="tabBtn" bindtap="tabClick" data-cap="1">排行榜{{}}</view>
+        <!-- <view style="color:{{color[2]}}"  bindtap="tabClick" data-cap="2">角色报名</view> -->
+        <!-- <view style="color:{{color[3]}}" calss="tabBtn" bindtap="tabClick" data-cap="3">规则</view> -->
       </view>
     </view>
 
@@ -129,7 +129,8 @@
             </view>
           </swiper-item>
         </block>
-        <block>
+
+        <!-- <block>
           <swiper-item>
             <view style="width:92vw;height:400rpx;margin:0 auto;position: relative;">
               <image src="../img/huo.png" style="width:100%;" mode="aspectFill"></image>
@@ -166,15 +167,12 @@
               <view style="width:100vw; color:#f00; text-align: center;">{{NotItem}}</view>
             </view>
           </swiper-item>
-        </block>
-        <block>
+        </block> -->
+        <!-- <block>
           <swiper-item>
-            <!-- 规则 -->
-            <!-- <Holiday></Holiday> -->
             <view class="holiday">
               <view class="holiday-title">活动规则</view>
               <view class="holiday-content">
-                <!-- 节目名称 -->
                 <view>一、节目名称：{{holiday.title}}</view>
                 <view>二、节目口号：{{holiday.slogan}}</view>
                 <view>三、节目宗旨：{{holiday.aim}}
@@ -206,9 +204,10 @@
               </view>
             </view>
           </swiper-item>
-        </block>
+        </block> -->
+        
       </swiper>
     </view>
-    <view class="myBtn" wx:if="{{current==1}}" bindtap="myBtn">我要报名</view>
+    <!-- <view class="myBtn" wx:if="{{current==1}}" bindtap="myBtn">我要报名</view> -->
   </view>
 </view>

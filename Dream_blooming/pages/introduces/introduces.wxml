@@ -64,7 +64,7 @@
             </view>
   </view>
   <!-- 活动内容 -->
-  <view class="introduces_content">
+  <view class="introduces_content" style="margin-bottom:30rpx">
     <view class="title_con">活动介绍</view>
     <view class="content_content">{{dataItem.content}}</view>
   </view>

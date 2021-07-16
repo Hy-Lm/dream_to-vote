@@ -1,5 +1,9 @@
 /**index.wxss**/
 /* 懒加载动画 */
+.tabBtn{
+width: 50%;
+text-align: center;
+}
 .load {
   text-align: center;
   width: 100%;

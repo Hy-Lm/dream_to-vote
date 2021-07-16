@@ -204,7 +204,7 @@ Page({
             })
             let number=that.data.rankingItem.length
             that.setData({
-              tabContentHeight:number*120
+              tabContentHeight:number*115
             })
           console.log(that.data.tabContentHeight,number)
 
@@ -238,7 +238,7 @@ Page({
           }
           let number=that.data.rankingItem.length
           that.setData({
-            tabContentHeight:number*120
+            tabContentHeight:number*115
           })
           console.log(that.data.tabContentHeight,number)
        }
