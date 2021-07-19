@@ -23,7 +23,7 @@
 				<table class="list-style" style="text-align: center;">
 					<tr>
 						<td>电话</td>
-						<td>价格</td>
+						<td>余额</td>
 						<td>编辑</td>
 					</tr>
 					<tr v-for="(item,index) in list" :key="index">
@@ -51,7 +51,8 @@
 		new Vue({
 			el: '#box',
 			data: {
-				url:'http://192.168.7.108/dream_to-vote/php/',
+				// url:'http://192.168.7.108/dream_to-vote/php/',
+				url:"../",
 				list: [],
 				index:'',
 				id:'',

@@ -44,7 +44,20 @@ Page({
     characterShow:false,//角色报名是否可以加载
     characterHeight:[]
   },
-  
+  onShareAppMessage() {
+    const promise = new Promise(resolve => {
+      setTimeout(() => {
+        resolve({
+          title: '绽放吧少年'
+        })
+      }, 2000)
+    })
+    return {
+      title: '绽放吧少年',
+      path: '/page',
+      promise 
+    }
+  },
   pageView(){//访问量自调用
     wx.request({
       url: this.data.url+'pageView.php',

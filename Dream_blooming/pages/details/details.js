@@ -280,9 +280,8 @@ Page({
   onLoad: function (options) {
     console.log(app.globalData)
     // 获取音频的控件
-    // // 视频音频播放
-
-    // this.audioCtx = wx.createAudioContext('myAudio')
+    // 视频音频播放
+    this.audioCtx = wx.createAudioContext('myAudio')
     // this.boxImgV= wx.createAudioContext('boxImgV')
     const eventChannel = this.getOpenerEventChannel()
     let that = this
@@ -323,9 +322,7 @@ Page({
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
-    console.log(11)
-  },
+  onUnload: function () {},
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作

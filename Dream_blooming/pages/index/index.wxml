@@ -85,7 +85,7 @@
                   {{item.player_vote}}票
                 </view>
                 <view class="playerRole">
-                  参加角色({{item.player_role}})
+                  参加角色({{item.player_role}}) 
                   <text style="color:#FF9200; float:right;">详情></text>
                 </view>
                 <view class="playerBtn">
