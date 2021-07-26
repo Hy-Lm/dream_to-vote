@@ -37,7 +37,12 @@ date_default_timezone_set('prc'); //中国北京时间
 		$s = explode(',',$s);
 		$row1['banner_imgs']=$s;
 		$row1['endTime']=$row1['end_time'];
-		$row1['end_time']=intval($row1['end_time'])-intval($row1['start_time']);
+		$row1['end_time']=intval($row1['end_time'])-intval(time());
+		if($row1['end_time']>0){
+			$row1['end_time']=intval($row1['end_time'])-intval(time());
+		}else{
+			$row1['end_time']='no';
+		}
 		echo json_encode($row1);
 	
 	
