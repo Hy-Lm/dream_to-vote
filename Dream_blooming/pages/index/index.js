@@ -412,7 +412,6 @@ endTime(val){
       success: function(res) {
         // 通过eventChannel向被打开页面传送数据
         res.eventChannel.emit('acceptDataFromOpenerPage', { data:obj })
-
       }
     })
   },
@@ -463,7 +462,7 @@ endTime(val){
               rankingItem:[],//排行榜数据
               character:[],//角色报名数据
             })
-            that.players(4,that.data.pages,"all")
+            that.players(10,that.data.pages,"all")
             wx.showToast({
               title: '该选手还未报名',
               icon: 'none',
@@ -481,23 +480,32 @@ endTime(val){
         rankingShow:false,
         characterShow:false
       })
-      this.players(4,this.data.pages,"all")
+      this.players(10,this.data.pages,"all")
     }
 
   },
   bindchanges(res){//滑动组件
-    console.log(res.detail.current)
     if(res.detail.current==0){
+      console.log(this.data.players)
+      let number
+      if(this.data.players.length/2%1==1){
+        number=this.data.players.length/2
+      }else{
+        number=this.data.players.length/2+0.5
+      }
+      console.log(number)
       this.setData({
+        tabContentHeight:number*760,
         color:["rgba(255,146,0,1)", "#000", "#000", "#000"],
         pages:1,
         playersShow:true,
         NotItem:"正在加载数据",
         rankingShow:false,
         characterShow:false
-
       })
-      this.players(4,this.data.pages,"all")
+      if(this.data.players==[]){
+         this.players(10,this.data.pages,"all")
+      }
     }
     if(res.detail.current==1){
       this.setData({
@@ -551,7 +559,6 @@ endTime(val){
           console.log(res.data)
           that.setData({
             holiday:res.data[0],
-            tabContentHeight:1950,
             rankingShow:false,
             playersShow:false
           })
@@ -567,16 +574,9 @@ endTime(val){
       rankingItem:[]
     })
     console.log(this.data.current)
-    if(this.data.current==0){
-      this.players(4,this.data.pages,"all")
-    }
-    if(this.data.current==1){
-      this.ranking(10,this.data.pages)
-    }
-    if(this.data.current==2){
-      this.characterItem(4,this.data.pages)
-    }
-
+    // if(this.data.current==0){
+    //   this.players(10,this.data.pages,"all")
+    // }
   },
   onLoad() {
     // console.log(app.globalData.openid)
@@ -585,7 +585,16 @@ endTime(val){
         canIUseGetUserProfile: true
       })
     }
-    this.players(4,this.data.pages,"all")
+    if(this.data.current==0){
+      this.players(10,this.data.pages,"all")
+      // console.log(this.data.players)
+    }
+    if(this.data.current==1){
+      this.ranking(10,this.data.pages)
+    }
+    if(this.data.current==2){
+      this.characterItem(4,this.data.pages)
+    }
     this.details()
     this.pageView()
     this.holiday()
@@ -597,7 +606,7 @@ endTime(val){
   onReachBottom: function () {
     if(this.data.playersShow){//全部选手数据
       console.log(this.data.playersShow)
-      this.players(4,this.data.pages+1,"all")
+      this.players(10,this.data.pages+1,"all")
     }
     if(this.data.rankingShow){//排行榜数据
       console.log(this.data.rankingShow)

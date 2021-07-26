@@ -2,5 +2,6 @@
   "usingComponents": {},
   "navigationBarTitleText": "参赛选手详情",
   "navigationBarBackgroundColor":"#fff",
-	"navigationBarTextStyle":"black"
+  "navigationBarTextStyle":"black",
+  "enablePullDownRefresh": true
 }
