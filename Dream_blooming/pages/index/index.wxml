@@ -60,7 +60,7 @@
       <!-- 切换 -->
       <view class="tab">
         <view style="color:{{color[0]}}" class="tabBtn" bindtap="tabClick" data-cap="0">全部选手</view>
-        <view style="color:{{color[1]}}"  class="tabBtn" bindtap="tabClick" data-cap="1">排行榜{{}}</view>
+        <view style="color:{{color[1]}}"  class="tabBtn" bindtap="tabClick" data-cap="1">排行榜{{tabContentHeight}}</view>
         <!-- <view style="color:{{color[2]}}"  bindtap="tabClick" data-cap="2">角色报名</view> -->
         <!-- <view style="color:{{color[3]}}" calss="tabBtn" bindtap="tabClick" data-cap="3">规则</view> -->
       </view>
